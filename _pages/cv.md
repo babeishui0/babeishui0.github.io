@@ -11,37 +11,35 @@ redirect_from:
 
 Education
 ======
-* Ph.D in Version Control Theory, GitHub University, 2018 (expected)
-* M.S. in Jekyll, GitHub University, 2014
-* B.S. in GitHub, GitHub University, 2012
+* **M.Phil.** in Microelectronics, **The Hong Kong University of Science and Technology (Guangzhou)**, 2026 (Expected)
+* **B.E.** in Electronic Science and Technology, **Beijing Institute of Technology**, 2024
+
+Research Interests
+======
+* AI Accelerator and Compute-in-Memory
+* Computer Architecture and Hardware-Software Co-design
+* Digital Integrated Circuits
 
 Work experience
 ======
-* Spring 2024: Academic Pages Collaborator
-  * GitHub University
-  * Duties includes: Updates and improvements to template
-  * Supervisor: The Users
+* **Research Assistant @ University of Macau**, 04/2026-07/2026
+  * Duties included: 
+  * Supervisor: 
 
-* Fall 2015: Research Assistant
-  * GitHub University
-  * Duties included: Merging pull requests
-  * Supervisor: Professor Hub
-
-* Summer 2015: Research Assistant
-  * GitHub University
-  * Duties included: Tagging issues
-  * Supervisor: Professor Git
+* **Hardware development Intern @ Pony.ai (小马智行)**, 12/2023-05/2024
+  * Evaluate the hardware functional safety of the autonomous driving controller based on ISO26262 and design safety mechanisms based on the hardware failure rate. 
+  * Conduct high temperature failure testing of dual Orin chip controller hardware. Conduct FMEDA for 4 Orin chip controller hardware and complete the project safety documents. 
   
-Skills
+<!-- Skills
 ======
 * Skill 1
 * Skill 2
   * Sub-skill 2.1
   * Sub-skill 2.2
   * Sub-skill 2.3
-* Skill 3
+* Skill 3 -->
 
-Publications
+<!-- Publications
 ======
   <ul>{% for post in site.publications reversed %}
     {% include archive-single-cv.html %}
@@ -61,4 +59,4 @@ Teaching
   
 Service and leadership
 ======
-* Currently signed in to 43 different slack teams
+* Currently signed in to 43 different slack teams -->
