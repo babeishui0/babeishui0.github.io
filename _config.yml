@@ -23,7 +23,7 @@ repository               : "babeishui0/babeishui0.github.io"
 #               Additional customization can be done by editing /_includes/author-profile.html
 author:
   # Biographic information
-  avatar           : "zj_1.png"
+  avatar           : "profile.png"
   name             : "Jing ZHANG"
   pronouns         : # example: "she/her"  
   bio              : "A 2nd year Mphil student at HKUST(GZ)"
