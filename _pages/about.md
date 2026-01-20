@@ -7,7 +7,7 @@ redirect_from:
   - /about.html
 ---
 
-I am currently an MPhil student at [The Hong Kong University of Science and Technology (Guangzhou)](https://www.hkust-gz.edu.cn/), supervised by Prof. Shanshi Huang and Prof. Hongwu Jiang.
+I am currently an MPhil student at [The Hong Kong University of Science and Technology (Guangzhou)](https://www.hkust-gz.edu.cn/), supervised by Prof. Shanshi HUANG and Prof. Hongwu JIANG.
 
 My research interests include:
 * AI Accelerator and Compute-in-Memory
