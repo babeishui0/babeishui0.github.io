@@ -16,7 +16,11 @@
 {% assign archive_card_class = "" %}
 {% if archive_type == 'list' %}
   {% assign post_path = post.path | default: "" %}
-  {% if post.collection == 'publications' %}
+  {% if include.archive_card == 'publication' %}
+    {% assign archive_card_class = " archive-message-card archive-message-card--publication" %}
+  {% elsif include.archive_card == 'post' %}
+    {% assign archive_card_class = " archive-message-card archive-message-card--post" %}
+  {% elsif post.collection == 'publications' %}
     {% assign archive_card_class = " archive-message-card archive-message-card--publication" %}
   {% elsif post.collection == 'posts' %}
     {% assign archive_card_class = " archive-message-card archive-message-card--post" %}

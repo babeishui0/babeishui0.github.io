@@ -15,8 +15,8 @@
   border: 1px solid var(--news-card-border, rgba(255, 160, 194, 0.7));
   border-left: 4px solid var(--news-card-accent, #ff7eb6);
   border-radius: 8px;
-  background: var(--news-card-bg, rgba(255, 240, 248, 0.74));
-  box-shadow: 0 14px 34px rgba(120, 74, 98, 0.12);
+  background: var(--news-card-bg, linear-gradient(135deg, rgba(255, 214, 238, 0.62), rgba(225, 244, 255, 0.48)));
+  box-shadow: 0 16px 36px rgba(120, 74, 98, 0.16);
   -webkit-backdrop-filter: blur(8px);
   backdrop-filter: blur(8px);
 }
@@ -46,7 +46,9 @@
   line-height: 1.2;
   border: 1px solid var(--news-card-border, rgba(255, 160, 194, 0.7));
   border-radius: 999px;
-  background: rgba(255, 255, 255, 0.62);
+  background: rgba(255, 255, 255, 0.5);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
 }
 
 .home-news-card p:last-child {
@@ -55,57 +57,65 @@
 
 .home-news-card--online {
   --news-card-accent: #f59e0b;
-  --news-card-border: rgba(245, 158, 11, 0.45);
-  --news-card-bg: rgba(255, 247, 205, 0.72);
+  --news-card-border: rgba(245, 158, 11, 0.42);
+  --news-card-bg: linear-gradient(135deg, rgba(255, 236, 153, 0.58), rgba(255, 201, 222, 0.42));
 }
 
 .home-news-card--first {
   --news-card-accent: #ff5f9e;
-  --news-card-border: rgba(255, 95, 158, 0.48);
-  --news-card-bg: rgba(255, 232, 244, 0.76);
+  --news-card-border: rgba(255, 95, 158, 0.46);
+  --news-card-bg: linear-gradient(135deg, rgba(255, 190, 219, 0.58), rgba(218, 204, 255, 0.42));
 }
 
 .home-news-card--coauthor {
   --news-card-accent: #14b8a6;
-  --news-card-border: rgba(20, 184, 166, 0.42);
-  --news-card-bg: rgba(223, 250, 246, 0.74);
+  --news-card-border: rgba(20, 184, 166, 0.4);
+  --news-card-bg: linear-gradient(135deg, rgba(189, 247, 238, 0.56), rgba(255, 217, 232, 0.42));
 }
 
 .archive-message-card {
   margin-bottom: 1rem;
 }
 
-.archive-message-card > .archive__item {
+.archive-message-card > .archive__item,
+.archive .archive-message-card > .archive__item,
+.page__content .archive-message-card > .archive__item {
   position: relative;
-  padding: 1rem 1.1rem;
-  border: 1px solid rgba(236, 172, 194, 0.72);
-  border-left: 4px solid #eda4bd;
-  border-radius: 8px;
-  background: rgba(255, 241, 247, 0.78);
-  box-shadow: 0 12px 30px rgba(130, 76, 98, 0.1);
+  padding: 1rem 1.1rem !important;
+  border: 1px solid rgba(241, 166, 197, 0.68) !important;
+  border-left: 4px solid rgba(239, 139, 179, 0.96) !important;
+  border-radius: 8px !important;
+  background: linear-gradient(135deg, rgba(255, 211, 228, 0.62), rgba(255, 236, 244, 0.46)) !important;
+  box-shadow: 0 16px 36px rgba(130, 76, 98, 0.14) !important;
   -webkit-backdrop-filter: blur(6px);
   backdrop-filter: blur(6px);
 }
 
-.archive-message-card > .archive__item::before {
+.archive-message-card > .archive__item::before,
+.archive .archive-message-card > .archive__item::before,
+.page__content .archive-message-card > .archive__item::before {
   content: "";
   position: absolute;
   top: 1.05rem;
   left: -0.48rem;
   width: 0.72rem;
   height: 0.72rem;
-  border-left: 1px solid rgba(236, 172, 194, 0.72);
-  border-bottom: 1px solid rgba(236, 172, 194, 0.72);
+  border-left: 1px solid rgba(241, 166, 197, 0.68);
+  border-bottom: 1px solid rgba(241, 166, 197, 0.68);
   background: inherit;
   transform: rotate(45deg);
 }
 
-.archive-message-card .archive__item-title {
-  margin-top: 0;
+.archive-message-card .archive__item-title,
+.archive .archive-message-card .archive__item-title,
+.page__content .archive-message-card .archive__item-title {
+  margin-top: 0 !important;
 }
 
-.archive-message-card .archive__item-title a {
-  color: #7a4055;
+.archive-message-card .archive__item-title a,
+.archive .archive-message-card .archive__item-title a,
+.page__content .archive-message-card .archive__item-title a {
+  color: #7a4055 !important;
   text-decoration-thickness: 1px;
   text-underline-offset: 0.18em;
 }
@@ -116,10 +126,10 @@
 
 html[data-theme="dark"] .home-news-card,
 html[data-theme="dark"] .archive-message-card > .archive__item {
-  background: rgba(74, 63, 70, 0.88);
+  background: linear-gradient(135deg, rgba(255, 155, 196, 0.22), rgba(188, 170, 255, 0.18)) !important;
   box-shadow: 0 14px 34px rgba(0, 0, 0, 0.24);
 }
 
 html[data-theme="dark"] .home-news-card__date {
-  background: rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.1);
 }
