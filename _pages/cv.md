@@ -17,15 +17,15 @@ Education
 
 Research Interests
 ======
-* AI Accelerator and Compute-in-Memory
+* Digital Integrated Circuits and Compute-in-Memory Architecture
 * Computer Architecture and Hardware-Software Co-design
-* Digital Integrated Circuits
+* Large Language Models
 
 Work experience
 ======
 * **Research Assistant @ University of Macau**, 04/2026-07/2026
-  * Duties included: 
-  * Supervisor: 
+  * Duties included: Wafer-Scale Chip for LLMs
+  * Supervisor: Prof. Jiawei XU
 
 * **Hardware development Intern @ Pony.ai (小马智行)**, 12/2023-05/2024
   * Evaluate the hardware functional safety of the autonomous driving controller based on ISO26262 and design safety mechanisms based on the hardware failure rate. 

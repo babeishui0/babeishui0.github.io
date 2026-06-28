@@ -7,22 +7,22 @@ redirect_from:
   - /about.html
 ---
 
-I am currently a Ph.D. student at [University of Macau](https://www.um.edu.mo/). Before that, I received my M.Phil. degree from [The Hong Kong University of Science and Technology (Guangzhou)](https://www.hkust-gz.edu.cn/), supervised by Prof. Shanshi HUANG and Prof. Hongwu JIANG.
+I am currently a Ph.D. student at [University of Macau](https://www.um.edu.mo/), supervised by Prof. Jiawei XU. Before that, I received my M.Phil. degree from [The Hong Kong University of Science and Technology (Guangzhou)](https://www.hkust-gz.edu.cn/), supervised by Prof. Shanshi HUANG and Prof. Hongwu JIANG.
 
 My research interests include:
-* AI Accelerator and Compute-in-Memory
+* Digital Integrated Circuits and Compute-in-Memory Architecture
 * Computer Architecture and Hardware-Software Co-design
-* Digital Integrated Circuits
+* Large Language Models
 
 ---
 
 # Education
 
-Ph.D. student at University of Macau
+Ph.D. student at University of Macau 
 
-M.Phil. degree at The Hong Kong University of Science and Technology (Guangzhou)
+M.Phil. degree at The Hong Kong University of Science and Technology (Guangzhou) 
 
-BEng degree at Beijing Institute of Technology (BIT)
+B.Eng. degree at Beijing Institute of Technology 
 
 ---
 
