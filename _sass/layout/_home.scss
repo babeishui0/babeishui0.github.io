@@ -12,11 +12,11 @@
 .home-message-card {
   position: relative;
   padding: 1rem 1.15rem 1.05rem 1.25rem;
-  border: 1px solid color-mix(in srgb, var(--global-border-color), var(--global-text-color) 8%);
+  border: 1px solid var(--home-card-border, #d7e8ec);
   border-left: 4px solid var(--home-card-accent, var(--global-base-color));
   border-radius: 8px;
-  background: color-mix(in srgb, var(--global-bg-color), var(--home-card-tint, #ffffff) 12%);
-  box-shadow: 0 10px 28px rgba(19, 38, 48, 0.08);
+  background: var(--home-card-bg, #f8fbfc);
+  box-shadow: 0 14px 36px rgba(19, 38, 48, 0.12);
 }
 
 .home-message-card::before {
@@ -26,20 +26,25 @@
   left: -0.52rem;
   width: 0.75rem;
   height: 0.75rem;
-  border-left: 1px solid color-mix(in srgb, var(--global-border-color), var(--global-text-color) 8%);
-  border-bottom: 1px solid color-mix(in srgb, var(--global-border-color), var(--global-text-color) 8%);
+  border-left: 1px solid var(--home-card-border, #d7e8ec);
+  border-bottom: 1px solid var(--home-card-border, #d7e8ec);
   background: inherit;
   transform: rotate(45deg);
 }
 
 .home-message-card__meta {
+  display: inline-block;
   margin-bottom: 0.65rem;
+  padding: 0.22rem 0.55rem;
   color: var(--home-card-accent, var(--global-base-color));
   font-family: $sans-serif;
   font-size: $type-size-6;
   font-weight: 700;
   letter-spacing: 0;
   line-height: 1.2;
+  border: 1px solid var(--home-card-border, #d7e8ec);
+  border-radius: 999px;
+  background: var(--global-bg-color);
 }
 
 .home-message-card p:last-child,
@@ -62,22 +67,36 @@
 
 .home-message-card--intro {
   --home-card-accent: #2f7f93;
-  --home-card-tint: #dff4f0;
+  --home-card-bg: #eef8f6;
+  --home-card-border: #b9dddf;
 }
 
 .home-message-card--research {
   --home-card-accent: #7a5a1d;
-  --home-card-tint: #fff0c7;
+  --home-card-bg: #fff7df;
+  --home-card-border: #ead58c;
 }
 
 .home-message-card--education {
   --home-card-accent: #8f4f5d;
-  --home-card-tint: #ffe4e6;
+  --home-card-bg: #fff0f2;
+  --home-card-border: #e7bbc4;
 }
 
 .home-message-card--news {
   --home-card-accent: #4d6fbd;
-  --home-card-tint: #e6edff;
+  --home-card-bg: #eef3ff;
+  --home-card-border: #bdcbef;
+}
+
+html[data-theme="dark"] .home-message-card {
+  background: #3d3f42;
+  border-color: #6f7479;
+  box-shadow: 0 14px 36px rgba(0, 0, 0, 0.22);
+}
+
+html[data-theme="dark"] .home-message-card::before {
+  border-color: #6f7479;
 }
 
 @media (min-width: 48em) {
