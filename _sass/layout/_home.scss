@@ -1,5 +1,5 @@
 /* ==========================================================================
-   SUBTLE MESSAGE CARDS
+   TIMELINE, PUBLICATION LIST, AND SUBTLE CARDS
    ========================================================================== */
 
 :root {
@@ -17,28 +17,13 @@
 }
 
 .home-news-card {
-  position: relative;
   padding: 0.9rem 1rem;
   border: 1px solid var(--message-card-border);
-  border-left: 3px solid var(--message-card-accent);
   border-radius: 8px;
   background: var(--message-card-bg);
-  box-shadow: 0 10px 24px var(--message-card-shadow);
+  box-shadow: 0 8px 20px var(--message-card-shadow);
   -webkit-backdrop-filter: blur(10px);
   backdrop-filter: blur(10px);
-}
-
-.home-news-card::before {
-  content: "";
-  position: absolute;
-  top: 1rem;
-  left: -0.39rem;
-  width: 0.58rem;
-  height: 0.58rem;
-  border-left: 1px solid var(--message-card-border);
-  border-bottom: 1px solid var(--message-card-border);
-  background: inherit;
-  transform: rotate(45deg);
 }
 
 .home-news-card__date {
@@ -53,6 +38,134 @@
 
 .home-news-card p:last-child {
   margin-bottom: 0;
+}
+
+.education-timeline {
+  position: relative;
+  display: grid;
+  gap: 1.3rem;
+  margin: 1rem 0 2rem;
+}
+
+.education-timeline__line {
+  position: absolute;
+  top: 0.5rem;
+  bottom: 0.5rem;
+  left: 1.42rem;
+  width: 2px;
+  background: #8fb7ed;
+}
+
+.education-timeline__item {
+  position: relative;
+  display: grid;
+  grid-template-columns: 3rem minmax(0, 1fr);
+  gap: 1rem;
+  align-items: start;
+}
+
+.education-timeline__badge {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  place-items: center;
+  width: 2.9rem;
+  height: 2.9rem;
+  color: #436a9b;
+  font-family: $sans-serif;
+  font-size: $type-size-6;
+  font-weight: 700;
+  letter-spacing: 0;
+  border: 1px solid #d8dee8;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.86);
+  box-shadow: 0 4px 10px rgba(45, 61, 76, 0.12);
+}
+
+.education-timeline__card {
+  padding: 1rem 1.1rem;
+  border: 1px solid #d8dce2;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.74);
+  box-shadow: 0 8px 18px rgba(35, 45, 55, 0.08);
+}
+
+.education-timeline__header {
+  display: flex;
+  gap: 0.75rem;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.education-timeline__header h3 {
+  margin: 0;
+  font-size: $type-size-5;
+}
+
+.education-timeline__header span {
+  flex: none;
+  color: #555f69;
+  font-size: $type-size-6;
+}
+
+.education-timeline__school {
+  margin: 0.35rem 0 0.7rem;
+  color: #2b6cc4;
+  font-weight: 700;
+}
+
+.education-timeline__card p:last-child {
+  margin-bottom: 0;
+}
+
+.publication-list__item {
+  display: grid;
+  grid-template-columns: 8rem minmax(0, 1fr);
+  gap: 1.5rem;
+  padding: 1.25rem 0;
+  border-bottom: 1px solid #d8d8d8;
+}
+
+.publication-list__venue {
+  align-self: start;
+  justify-self: end;
+  min-width: 6.5rem;
+  padding: 0.35rem 0.7rem;
+  color: #1f63b7;
+  font-weight: 700;
+  text-align: center;
+  border-radius: 8px;
+  background: #eef4fc;
+}
+
+.publication-list__body p {
+  margin-bottom: 0.45rem;
+}
+
+.publication-list__title {
+  margin-top: 0;
+  margin-bottom: 0.45rem;
+  line-height: 1.35;
+}
+
+.publication-list__title a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.publication-list__title a:hover {
+  color: var(--global-link-color-hover);
+  text-decoration: underline;
+}
+
+.publication-list__authors {
+  font-weight: 600;
+}
+
+.publication-list__links a {
+  margin-right: 0.7rem;
+  font-weight: 700;
+  text-decoration: none;
 }
 
 .archive-message-card {
@@ -111,4 +224,21 @@ html[data-theme="dark"] .archive-message-card > .archive__item {
   background: rgba(75, 69, 73, 0.62) !important;
   border-color: rgba(205, 190, 198, 0.28) !important;
   box-shadow: 0 10px 24px rgba(0, 0, 0, 0.18);
+}
+
+@media (max-width: 37.5em) {
+  .education-timeline__header,
+  .publication-list__item {
+    display: block;
+  }
+
+  .education-timeline__header span {
+    display: block;
+    margin-top: 0.25rem;
+  }
+
+  .publication-list__venue {
+    display: inline-block;
+    margin-bottom: 0.75rem;
+  }
 }

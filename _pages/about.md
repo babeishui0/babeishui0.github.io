@@ -19,11 +19,44 @@ My research interests include:
 
 # Education
 
-Ph.D. student at University of Macau
+<div class="education-timeline">
+  <div class="education-timeline__line" aria-hidden="true"></div>
 
-M.Phil. degree at The Hong Kong University of Science and Technology (Guangzhou)
+  <article class="education-timeline__item">
+    <div class="education-timeline__badge">UM</div>
+    <div class="education-timeline__card">
+      <div class="education-timeline__header">
+        <h3>Ph.D. Student</h3>
+        <span>2026-present</span>
+      </div>
+      <p class="education-timeline__school">University of Macau</p>
+      <p>Supervised by Prof. Jiawei XU.</p>
+    </div>
+  </article>
 
-B.Eng. degree at Beijing Institute of Technology
+  <article class="education-timeline__item">
+    <div class="education-timeline__badge">GZ</div>
+    <div class="education-timeline__card">
+      <div class="education-timeline__header">
+        <h3>M.Phil. in Microelectronics</h3>
+        <span>2024-2026</span>
+      </div>
+      <p class="education-timeline__school">The Hong Kong University of Science and Technology (Guangzhou)</p>
+      <p>Supervised by Prof. Shanshi HUANG and Prof. Hongwu JIANG.</p>
+    </div>
+  </article>
+
+  <article class="education-timeline__item">
+    <div class="education-timeline__badge">BIT</div>
+    <div class="education-timeline__card">
+      <div class="education-timeline__header">
+        <h3>B.Eng.</h3>
+        <span>2024</span>
+      </div>
+      <p class="education-timeline__school">Beijing Institute of Technology</p>
+    </div>
+  </article>
+</div>
 
 ---
 
