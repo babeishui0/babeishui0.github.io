@@ -29,10 +29,16 @@
   {% endif %}
 {% endif %}
 
+{% assign is_post_archive_card = false %}
+{% if archive_card_class contains 'archive-message-card--post' %}
+  {% assign is_post_archive_card = true %}
+{% endif %}
+
 {% if include.archive_card == 'publication' and archive_type == 'list' %}
 <div class="publication-list__item">
-  <div class="publication-list__venue">{{ post.venue }} '{{ post.date | default: "1900-01-01" | date: "%y" }}</div>
   <article class="publication-list__body" itemscope itemtype="http://schema.org/CreativeWork">
+    <div class="publication-list__meta">{{ post.venue }} '{{ post.date | default: "1900-01-01" | date: "%y" }}</div>
+
     <h2 class="archive__item-title publication-list__title" itemprop="headline">
       {% if post.link %}
         <a href="{{ post.link }}">{{ title }}</a> <a href="{{ base_path }}{{ post.url }}" rel="permalink"><i class="fa fa-link" aria-hidden="true" title="permalink"></i><span class="sr-only">Permalink</span></a>
@@ -68,6 +74,10 @@
       </div>
     {% endif %}
 
+    {% if is_post_archive_card and post.date %}
+      <div class="archive-message-card__date"><time datetime="{{ post.date | default: "1900-01-01" | date_to_xmlschema }}">{{ post.date | default: "1900-01-01" | date: "%B %d, %Y" }}</time></div>
+    {% endif %}
+
     <h2 class="archive__item-title" itemprop="headline">
       {% if post.link %}
         <a href="{{ post.link }}">{{ title }}</a> <a href="{{ base_path }}{{ post.url }}" rel="permalink"><i class="fa fa-link" aria-hidden="true" title="permalink"></i><span class="sr-only">Permalink</span></a>
@@ -85,7 +95,9 @@
         {% elsif post.collection == 'publications' %}
           <p>Published in <b><i>{{ post.venue }}</i>, {{ post.date | default: "1900-01-01" | date: "%Y" }}</b> </p>
         {% elsif post.date %}
-         <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> {{ site.data.ui-text[site.locale].date_label | default: "Published:" }}</strong> <time datetime="{{ post.date | default: "1900-01-01" | date_to_xmlschema }}">{{ post.date | default: "1900-01-01" | date: "%B %d, %Y" }}</time></p>
+          {% unless is_post_archive_card %}
+            <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> {{ site.data.ui-text[site.locale].date_label | default: "Published:" }}</strong> <time datetime="{{ post.date | default: "1900-01-01" | date_to_xmlschema }}">{{ post.date | default: "1900-01-01" | date: "%B %d, %Y" }}</time></p>
+          {% endunless %}
         {% endif %}
 
     {% if post.excerpt and site.read_more != 'enabled' %}
