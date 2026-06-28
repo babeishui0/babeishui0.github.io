@@ -1,5 +1,5 @@
 /* ==========================================================================
-   TIMELINE, PUBLICATION LIST, AND SUBTLE CARDS
+   PUBLICATION LIST AND SUBTLE CARDS
    ========================================================================== */
 
 :root {
@@ -40,82 +40,19 @@
   margin-bottom: 0;
 }
 
-.education-timeline {
-  position: relative;
-  display: grid;
-  gap: 1.3rem;
-  margin: 1rem 0 2rem;
+.home-news-card--online {
+  --message-card-bg: rgba(250, 248, 236, 0.68);
+  --message-card-border: rgba(216, 207, 170, 0.5);
 }
 
-.education-timeline__line {
-  position: absolute;
-  top: 0.5rem;
-  bottom: 0.5rem;
-  left: 1.42rem;
-  width: 2px;
-  background: #8fb7ed;
+.home-news-card--first {
+  --message-card-bg: rgba(250, 242, 247, 0.68);
+  --message-card-border: rgba(218, 194, 208, 0.52);
 }
 
-.education-timeline__item {
-  position: relative;
-  display: grid;
-  grid-template-columns: 3rem minmax(0, 1fr);
-  gap: 1rem;
-  align-items: start;
-}
-
-.education-timeline__badge {
-  position: relative;
-  z-index: 1;
-  display: grid;
-  place-items: center;
-  width: 2.9rem;
-  height: 2.9rem;
-  color: #436a9b;
-  font-family: $sans-serif;
-  font-size: $type-size-6;
-  font-weight: 700;
-  letter-spacing: 0;
-  border: 1px solid #d8dee8;
-  border-radius: 8px;
-  background: rgba(255, 255, 255, 0.86);
-  box-shadow: 0 4px 10px rgba(45, 61, 76, 0.12);
-}
-
-.education-timeline__card {
-  padding: 1rem 1.1rem;
-  border: 1px solid #d8dce2;
-  border-radius: 8px;
-  background: rgba(255, 255, 255, 0.74);
-  box-shadow: 0 8px 18px rgba(35, 45, 55, 0.08);
-}
-
-.education-timeline__header {
-  display: flex;
-  gap: 0.75rem;
-  justify-content: space-between;
-  align-items: baseline;
-}
-
-.education-timeline__header h3 {
-  margin: 0;
-  font-size: $type-size-5;
-}
-
-.education-timeline__header span {
-  flex: none;
-  color: #555f69;
-  font-size: $type-size-6;
-}
-
-.education-timeline__school {
-  margin: 0.35rem 0 0.7rem;
-  color: #2b6cc4;
-  font-weight: 700;
-}
-
-.education-timeline__card p:last-child {
-  margin-bottom: 0;
+.home-news-card--coauthor {
+  --message-card-bg: rgba(241, 248, 247, 0.68);
+  --message-card-border: rgba(188, 211, 209, 0.5);
 }
 
 .publication-list__item {
@@ -175,30 +112,23 @@
 .archive-message-card > .archive__item,
 .archive .archive-message-card > .archive__item,
 .page__content .archive-message-card > .archive__item {
-  position: relative;
   padding: 0.95rem 1rem !important;
   border: 1px solid var(--message-card-border) !important;
-  border-left: 3px solid var(--message-card-accent) !important;
   border-radius: 8px !important;
   background: var(--message-card-bg) !important;
-  box-shadow: 0 10px 24px var(--message-card-shadow) !important;
+  box-shadow: 0 8px 20px var(--message-card-shadow) !important;
   -webkit-backdrop-filter: blur(10px);
   backdrop-filter: blur(10px);
 }
 
-.archive-message-card > .archive__item::before,
-.archive .archive-message-card > .archive__item::before,
-.page__content .archive-message-card > .archive__item::before {
-  content: "";
-  position: absolute;
-  top: 1rem;
-  left: -0.39rem;
-  width: 0.58rem;
-  height: 0.58rem;
-  border-left: 1px solid var(--message-card-border);
-  border-bottom: 1px solid var(--message-card-border);
-  background: inherit;
-  transform: rotate(45deg);
+.archive-message-card--post:nth-of-type(odd) > .archive__item {
+  --message-card-bg: rgba(250, 242, 247, 0.68);
+  --message-card-border: rgba(218, 194, 208, 0.52);
+}
+
+.archive-message-card--post:nth-of-type(even) > .archive__item {
+  --message-card-bg: rgba(241, 248, 247, 0.68);
+  --message-card-border: rgba(188, 211, 209, 0.5);
 }
 
 .archive-message-card .archive__item-title,
@@ -227,14 +157,8 @@ html[data-theme="dark"] .archive-message-card > .archive__item {
 }
 
 @media (max-width: 37.5em) {
-  .education-timeline__header,
   .publication-list__item {
     display: block;
-  }
-
-  .education-timeline__header span {
-    display: block;
-    margin-top: 0.25rem;
   }
 
   .publication-list__venue {
