@@ -19,11 +19,31 @@ My research interests include:
 
 # Education
 
-Ph.D. student at University of Macau
+<div class="education-dot-timeline">
+  <article class="education-dot-timeline__item">
+    <span class="education-dot-timeline__dot" aria-hidden="true"></span>
+    <div class="education-dot-timeline__content">
+      <h3>Ph.D. student</h3>
+      <p>University of Macau</p>
+    </div>
+  </article>
 
-M.Phil. degree at The Hong Kong University of Science and Technology (Guangzhou)
+  <article class="education-dot-timeline__item">
+    <span class="education-dot-timeline__dot" aria-hidden="true"></span>
+    <div class="education-dot-timeline__content">
+      <h3>M.Phil. degree</h3>
+      <p>The Hong Kong University of Science and Technology (Guangzhou)</p>
+    </div>
+  </article>
 
-B.Eng. degree at Beijing Institute of Technology
+  <article class="education-dot-timeline__item">
+    <span class="education-dot-timeline__dot" aria-hidden="true"></span>
+    <div class="education-dot-timeline__content">
+      <h3>B.Eng. degree</h3>
+      <p>Beijing Institute of Technology</p>
+    </div>
+  </article>
+</div>
 
 ---
 
