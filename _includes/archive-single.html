@@ -84,5 +84,9 @@
       <p><a href="{{ post.bibtexurl }}">Download Bibtex</a></p>
     {% endif %}
 
+    {% if post.doiurl %}
+      <p>DOI: <a href="{{ post.doiurl }}">{{ post.doi | default: post.doiurl }}</a></p>
+    {% endif %}
+
   </article>
 </div>

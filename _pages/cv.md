@@ -11,7 +11,8 @@ redirect_from:
 
 Education
 ======
-* **M.Phil.** in Microelectronics, **The Hong Kong University of Science and Technology (Guangzhou)**, 2026 (Expected)
+* **Ph.D.** student, **University of Macau**, 2026-present
+* **M.Phil.** in Microelectronics, **The Hong Kong University of Science and Technology (Guangzhou)**, 2026
 * **B.E.** in Electronic Science and Technology, **Beijing Institute of Technology**, 2024
 
 Research Interests

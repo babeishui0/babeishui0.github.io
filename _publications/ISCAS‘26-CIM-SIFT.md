@@ -7,6 +7,8 @@ excerpt: 'In this paper, we propose a CIM-based design, namely CIM-SIFT, to acce
 date: 2026-01-20
 venue: 'ISCAS'
 Authors: 'Zhengxi Yan, Cong Wang, Xipeng Lin, **Jing Zhang** and Hongwu Jiang'
+doi: '10.1109/ISCAS66217.2026.11562615'
+doiurl: 'https://doi.org/10.1109/ISCAS66217.2026.11562615'
 # paperurl: 'http://link-to-paper.com'
 # citation: 'Jing Zhang, Tianchu Dong, Shaoxuan Li, Zhengxi Yan, and Shanshi Huang. (2026). "InFP: A 17.97 TFLOPS/W Reconfigurable SRAM Based Computing-in-Memory Macro for BF16 MAC Operation." <i>ISCAS</i>.'
 ---
