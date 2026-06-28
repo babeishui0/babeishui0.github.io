@@ -12,7 +12,20 @@
   {% assign title = post.title %}
 {% endif %}
 
-<div class="{{ include.type | default: "list" }}__item">
+{% assign archive_type = include.type | default: "list" %}
+{% assign archive_card_class = "" %}
+{% if archive_type == 'list' %}
+  {% assign post_path = post.path | default: "" %}
+  {% if post.collection == 'publications' %}
+    {% assign archive_card_class = " archive-message-card archive-message-card--publication" %}
+  {% elsif post.collection == 'posts' %}
+    {% assign archive_card_class = " archive-message-card archive-message-card--post" %}
+  {% elsif post_path contains '_posts/' %}
+    {% assign archive_card_class = " archive-message-card archive-message-card--post" %}
+  {% endif %}
+{% endif %}
+
+<div class="{{ archive_type }}__item{{ archive_card_class }}">
   <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
     {% if include.type == "grid" and teaser %}
       <div class="archive__item-teaser">
