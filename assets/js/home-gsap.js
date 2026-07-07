@@ -28,9 +28,10 @@
       const heroItems = root.querySelectorAll("[data-home-animate]");
       const revealItems = root.querySelectorAll("[data-home-reveal]");
       const cards = root.querySelectorAll("[data-tilt]");
+      const floatItems = root.querySelectorAll("[data-home-float]");
 
       if (reduceMotion) {
-        gsap.set([...heroItems, ...revealItems, ...cards], {
+        gsap.set([...heroItems, ...revealItems, ...cards, ...floatItems], {
           autoAlpha: 1,
           x: 0,
           y: 0,
@@ -72,6 +73,17 @@
             repeat: -1,
             yoyo: true
           }, ">");
+
+        gsap.to(floatItems, {
+          y: (index) => (index % 2 === 0 ? -10 : 10),
+          x: (index) => (index % 2 === 0 ? 8 : -8),
+          rotation: (index) => (index % 2 === 0 ? 2 : -2),
+          duration: 3.4,
+          ease: "sine.inOut",
+          stagger: 0.18,
+          repeat: -1,
+          yoyo: true
+        });
 
         if (window.ScrollTrigger) {
           ScrollTrigger.batch(revealItems, {

@@ -10,11 +10,26 @@ redirect_from:
 
 {% include base_path %}
 
-<div class="home-glass-root">
+<div class="home-glass-root home-cartoon-root">
   <section class="home-glass-hero home-glass-card" data-home-animate data-tilt aria-labelledby="home-hero-title">
+    <div class="home-cartoon-sky" aria-hidden="true">
+      <span class="home-cartoon-cloud home-cartoon-cloud--one" data-home-float></span>
+      <span class="home-cartoon-cloud home-cartoon-cloud--two" data-home-float></span>
+      <span class="home-cartoon-cloud home-cartoon-cloud--three" data-home-float></span>
+      <span class="home-cartoon-doodle home-cartoon-doodle--star" data-home-float>✦</span>
+      <span class="home-cartoon-doodle home-cartoon-doodle--heart" data-home-float>♡</span>
+    </div>
+
+    <nav class="home-cartoon-nav" aria-label="Homepage sections">
+      <a href="#home-about-title">ME</a>
+      <a href="#home-education-title">Information</a>
+      <a href="#home-publications-title">Publications</a>
+      <a href="#home-writing-title">Blog</a>
+    </nav>
+
     <div class="home-glass-hero__copy">
-      <p class="home-glass-kicker">Digital ICs · Compute-in-Memory · Architecture</p>
-      <h1 id="home-hero-title">Jing ZHANG 张弪</h1>
+      <p class="home-glass-kicker">♡ Jing's Channel</p>
+      <h1 id="home-hero-title">I'm the protagonist.</h1>
       <p class="home-glass-lede">
         Ph.D. student at <a href="https://www.um.edu.mo/">University of Macau</a>, supervised by Prof. Jiawei XU. Before that, I received my M.Phil. degree from <a href="https://www.hkust-gz.edu.cn/">The Hong Kong University of Science and Technology (Guangzhou)</a>, supervised by Prof. Shanshi HUANG and Prof. Hongwu JIANG.
       </p>
@@ -27,6 +42,7 @@ redirect_from:
     </div>
 
     <div class="home-glass-profile">
+      <div class="home-cartoon-sticker" data-home-float>Digital ICs<br>Compute-in-Memory</div>
       <img class="home-glass-avatar" src="{{ base_path }}/images/mudie.png" alt="Jing ZHANG avatar" fetchpriority="high">
       <ul class="home-glass-facts" aria-label="Profile facts">
         <li><strong>Ph.D.</strong><span>University of Macau</span></li>

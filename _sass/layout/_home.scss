@@ -667,3 +667,410 @@ html[data-theme="dark"] .home-glass-card__links a {
     will-change: auto;
   }
 }
+
+/* ==========================================================================
+   CARTOON CHANNEL HOMEPAGE
+   ========================================================================== */
+
+.home-cartoon-root {
+  --home-glass-bg: linear-gradient(180deg, #86b9df 0%, #b5d9ee 25%, #f4f9fc 44%, #fff8fb 100%);
+  --home-glass-panel: rgba(255, 255, 255, 0.52);
+  --home-glass-panel-strong: rgba(255, 255, 255, 0.72);
+  --home-glass-border: rgba(255, 255, 255, 0.78);
+  --home-glass-text: #26323d;
+  --home-glass-muted: #52616f;
+  --home-glass-shadow: rgba(77, 92, 112, 0.16);
+  --home-glass-pink: rgba(255, 229, 240, 0.68);
+  --home-glass-mint: rgba(229, 249, 242, 0.7);
+  --home-glass-cream: rgba(255, 246, 217, 0.72);
+  --home-glass-blue: rgba(224, 241, 255, 0.72);
+  padding-top: 0;
+  background:
+    radial-gradient(circle at 50% 34%, rgba(138, 170, 116, 0.34) 0%, rgba(138, 170, 116, 0.34) 7%, transparent 7.2%),
+    var(--home-glass-bg);
+}
+
+.home-cartoon-root::before {
+  background-image:
+    radial-gradient(circle, rgba(48, 74, 82, 0.13) 1px, transparent 1.4px),
+    linear-gradient(rgba(255, 255, 255, 0.16) 1px, transparent 1px);
+  background-size: 12px 12px, 56px 56px;
+  opacity: 0.34;
+}
+
+.home-cartoon-root::after {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto;
+  height: 260px;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse at 8% 86%, rgba(255, 255, 255, 0.86) 0%, rgba(255, 255, 255, 0.86) 10%, transparent 10.4%),
+    radial-gradient(ellipse at 24% 80%, rgba(255, 255, 255, 0.84) 0%, rgba(255, 255, 255, 0.84) 12%, transparent 12.4%),
+    radial-gradient(ellipse at 45% 88%, rgba(255, 255, 255, 0.82) 0%, rgba(255, 255, 255, 0.82) 15%, transparent 15.4%),
+    radial-gradient(ellipse at 70% 78%, rgba(255, 255, 255, 0.8) 0%, rgba(255, 255, 255, 0.8) 13%, transparent 13.4%),
+    radial-gradient(ellipse at 94% 86%, rgba(255, 255, 255, 0.84) 0%, rgba(255, 255, 255, 0.84) 15%, transparent 15.4%);
+  opacity: 0.88;
+}
+
+.home-cartoon-root .home-glass-hero {
+  min-height: 520px;
+  margin-bottom: 3.2rem;
+  padding: 1.1rem 1.3rem 1.55rem;
+  border-color: rgba(255, 255, 255, 0.68);
+  color: #fff;
+  background:
+    linear-gradient(rgba(48, 86, 126, 0.18), rgba(63, 102, 137, 0.25)),
+    radial-gradient(ellipse at 50% 84%, rgba(118, 169, 103, 0.58) 0%, rgba(118, 169, 103, 0.58) 18%, transparent 18.5%),
+    linear-gradient(180deg, rgba(100, 154, 198, 0.86) 0%, rgba(168, 212, 236, 0.72) 62%, rgba(246, 250, 252, 0.66) 100%);
+  box-shadow: 0 24px 58px rgba(58, 82, 105, 0.2);
+}
+
+.home-cartoon-root .home-glass-hero::before {
+  content: "";
+  position: absolute;
+  inset: auto 0 0;
+  height: 52%;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 48% 58%, rgba(62, 92, 56, 0.26) 0, rgba(62, 92, 56, 0.26) 1.4px, transparent 1.8px);
+  background-size: 12px 12px;
+  mask-image: linear-gradient(transparent 0%, #000 38%);
+  opacity: 0.52;
+}
+
+.home-cartoon-root .home-glass-hero::after {
+  background:
+    linear-gradient(120deg, rgba(255, 255, 255, 0.28), transparent 35%, rgba(255, 255, 255, 0.1)),
+    radial-gradient(ellipse at 30% 20%, rgba(255, 255, 255, 0.24), transparent 42%);
+  opacity: 1;
+}
+
+.home-cartoon-nav {
+  position: absolute;
+  z-index: 3;
+  top: 1rem;
+  right: 1.15rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem 1.05rem;
+  align-items: center;
+  font-family: $sans-serif;
+  font-size: $type-size-6;
+  font-weight: 800;
+}
+
+.home-cartoon-nav a {
+  color: rgba(255, 255, 255, 0.95) !important;
+  text-shadow: 0 2px 9px rgba(48, 70, 94, 0.26);
+}
+
+.home-cartoon-sky {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.home-cartoon-cloud {
+  position: absolute;
+  display: block;
+  width: 8.5rem;
+  height: 2.8rem;
+  border: 1px solid rgba(255, 255, 255, 0.72);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.72);
+  box-shadow:
+    1.9rem -1.1rem 0 0.35rem rgba(255, 255, 255, 0.74),
+    4rem -0.55rem 0 0.95rem rgba(255, 255, 255, 0.7),
+    6.3rem -0.2rem 0 0.2rem rgba(255, 255, 255, 0.68),
+    0 12px 26px rgba(67, 91, 112, 0.12);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+  will-change: transform;
+}
+
+.home-cartoon-cloud--one {
+  top: 5.9rem;
+  left: 3.2rem;
+  transform: scale(0.9);
+}
+
+.home-cartoon-cloud--two {
+  top: 7.9rem;
+  right: 12%;
+  transform: scale(1.15);
+}
+
+.home-cartoon-cloud--three {
+  right: -1.8rem;
+  bottom: 9.5rem;
+  transform: scale(0.78);
+  opacity: 0.84;
+}
+
+.home-cartoon-doodle {
+  position: absolute;
+  z-index: 2;
+  color: rgba(255, 246, 250, 0.92);
+  font-size: 2.2rem;
+  font-weight: 800;
+  text-shadow: 0 3px 10px rgba(61, 84, 103, 0.18);
+  will-change: transform;
+}
+
+.home-cartoon-doodle--star {
+  top: 8.4rem;
+  left: 24%;
+}
+
+.home-cartoon-doodle--heart {
+  right: 6%;
+  bottom: 4.8rem;
+  font-size: 2.7rem;
+}
+
+.home-cartoon-root .home-glass-kicker {
+  display: inline-flex;
+  align-items: center;
+  margin-bottom: 1rem;
+  padding: 0.34rem 0.68rem;
+  border: 1px solid rgba(255, 255, 255, 0.58);
+  border-radius: 8px;
+  color: #fff;
+  background: rgba(36, 61, 117, 0.72);
+  box-shadow: 4px 4px 0 rgba(245, 218, 232, 0.72);
+  text-shadow: none;
+}
+
+.home-cartoon-root .home-glass-hero h1 {
+  max-width: 760px;
+  color: #fff;
+  font-size: 3.35rem;
+  text-shadow: 0 4px 18px rgba(46, 65, 90, 0.3);
+}
+
+.home-cartoon-root .home-glass-lede {
+  max-width: 720px;
+  padding: 0.82rem 0.95rem;
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  border-radius: 8px;
+  color: rgba(255, 255, 255, 0.94);
+  background: rgba(255, 255, 255, 0.18);
+  text-shadow: 0 2px 10px rgba(34, 53, 78, 0.22);
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+}
+
+.home-cartoon-root .home-glass-lede a {
+  color: #fff7c2 !important;
+}
+
+.home-cartoon-root .home-glass-button {
+  border-color: rgba(255, 255, 255, 0.64) !important;
+  color: #405267 !important;
+  background: rgba(255, 255, 255, 0.82);
+  box-shadow: 4px 4px 0 rgba(232, 166, 188, 0.56), 0 8px 18px rgba(49, 72, 92, 0.13);
+}
+
+.home-cartoon-root .home-glass-button:hover {
+  color: #8b536c !important;
+  transform: translateY(-1px);
+}
+
+.home-cartoon-root .home-glass-profile {
+  align-self: end;
+}
+
+.home-cartoon-sticker {
+  justify-self: end;
+  max-width: 12rem;
+  padding: 0.55rem 0.72rem;
+  border: 1px solid rgba(250, 230, 244, 0.94);
+  border-radius: 8px;
+  color: #77556a;
+  font-family: $sans-serif;
+  font-size: $type-size-6;
+  font-weight: 800;
+  line-height: 1.25;
+  text-align: center;
+  background: rgba(255, 234, 244, 0.86);
+  box-shadow: 4px 4px 0 rgba(255, 255, 255, 0.62), 0 9px 22px rgba(65, 88, 110, 0.13);
+  transform: rotate(3deg);
+  will-change: transform;
+}
+
+.home-cartoon-root .home-glass-avatar {
+  width: 238px;
+  max-width: 64vw;
+  border: 7px solid rgba(255, 255, 255, 0.82);
+  border-radius: 8px;
+  box-shadow:
+    6px 6px 0 rgba(38, 54, 72, 0.28),
+    0 18px 34px rgba(37, 61, 85, 0.2);
+  transform: rotate(-2deg);
+}
+
+.home-cartoon-root .home-glass-facts li {
+  border: 1px solid rgba(255, 255, 255, 0.68);
+  background: rgba(255, 255, 255, 0.48);
+  box-shadow: 3px 3px 0 rgba(255, 230, 241, 0.52);
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+}
+
+.home-cartoon-root .home-glass-section {
+  margin: 2.6rem 0;
+}
+
+.home-cartoon-root .home-glass-section__head {
+  display: grid;
+  gap: 0.3rem;
+  max-width: none;
+  margin-bottom: 1rem;
+}
+
+.home-cartoon-root .home-glass-section__head .home-glass-kicker {
+  width: fit-content;
+  margin-bottom: 0;
+  color: #866074;
+  background: rgba(255, 229, 240, 0.76);
+  box-shadow: 4px 4px 0 rgba(222, 238, 252, 0.84);
+}
+
+.home-cartoon-root .home-glass-section__head h2 {
+  padding-bottom: 0.55rem;
+  border-bottom: 2px solid rgba(218, 126, 156, 0.52);
+  color: #2b343e;
+  font-size: 2.35rem;
+}
+
+.home-cartoon-root .home-glass-card:not(.home-glass-hero) {
+  border: 1px solid rgba(255, 255, 255, 0.82);
+  color: #28323d;
+  background:
+    linear-gradient(145deg, rgba(255, 255, 255, 0.76), var(--home-glass-panel)),
+    repeating-linear-gradient(0deg, rgba(255, 255, 255, 0.22) 0, rgba(255, 255, 255, 0.22) 1px, transparent 1px, transparent 9px);
+  box-shadow:
+    5px 5px 0 rgba(92, 107, 124, 0.12),
+    0 16px 34px rgba(72, 88, 105, 0.12);
+}
+
+.home-cartoon-root .home-glass-card:not(.home-glass-hero)::before {
+  content: "";
+  position: absolute;
+  top: 0.62rem;
+  right: 0.72rem;
+  width: 3.2rem;
+  height: 0.72rem;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.46);
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.68);
+  transform: rotate(2deg);
+}
+
+.home-cartoon-root .home-glass-card__meta {
+  display: inline-flex;
+  width: fit-content;
+  margin-bottom: 0.7rem;
+  padding: 0.22rem 0.52rem;
+  border: 1px solid rgba(255, 255, 255, 0.62);
+  border-radius: 8px;
+  color: #7d6170;
+  background: rgba(255, 255, 255, 0.45);
+}
+
+.home-cartoon-root .home-glass-card h3 {
+  color: #26323d;
+}
+
+.home-cartoon-root .home-glass-card p,
+.home-cartoon-root .home-glass-facts span,
+.home-cartoon-root .home-glass-chip-list li {
+  color: #53606d;
+}
+
+.home-cartoon-root .home-glass-chip-list li,
+.home-cartoon-root .home-glass-card__links a {
+  border-color: rgba(255, 255, 255, 0.74) !important;
+  background: rgba(255, 255, 255, 0.52);
+  box-shadow: 3px 3px 0 rgba(232, 166, 188, 0.22);
+}
+
+.home-cartoon-root .home-glass-card--about,
+.home-cartoon-root .home-glass-card--paper {
+  --home-glass-panel: rgba(224, 241, 255, 0.72);
+}
+
+.home-cartoon-root .home-glass-card--research,
+.home-cartoon-root .home-glass-card--education,
+.home-cartoon-root .home-glass-card--post,
+.home-cartoon-root .home-glass-card--mint {
+  --home-glass-panel: rgba(229, 249, 242, 0.74);
+}
+
+.home-cartoon-root .home-glass-card--pink {
+  --home-glass-panel: rgba(255, 229, 240, 0.76);
+}
+
+.home-cartoon-root .home-glass-card--cream {
+  --home-glass-panel: rgba(255, 246, 217, 0.78);
+}
+
+html[data-theme="dark"] .home-cartoon-root {
+  --home-glass-bg: linear-gradient(180deg, #1c3146 0%, #24354a 35%, #251f2b 100%);
+  --home-glass-text: #f5f7fb;
+  --home-glass-muted: #d3d9e2;
+}
+
+html[data-theme="dark"] .home-cartoon-root .home-glass-section__head h2,
+html[data-theme="dark"] .home-cartoon-root .home-glass-card h3,
+html[data-theme="dark"] .home-cartoon-root .home-glass-card:not(.home-glass-hero) {
+  color: #f5f7fb;
+}
+
+html[data-theme="dark"] .home-cartoon-root .home-glass-card p,
+html[data-theme="dark"] .home-cartoon-root .home-glass-facts span,
+html[data-theme="dark"] .home-cartoon-root .home-glass-chip-list li {
+  color: #d3d9e2;
+}
+
+@media (max-width: 64em) {
+  .home-cartoon-root .home-glass-hero {
+    padding-top: 4.3rem;
+  }
+
+  .home-cartoon-nav {
+    right: auto;
+    left: 1rem;
+    max-width: calc(100% - 2rem);
+  }
+}
+
+@media (max-width: 37.5em) {
+  .home-cartoon-root .home-glass-hero {
+    min-height: 0;
+    padding-top: 5.2rem;
+  }
+
+  .home-cartoon-nav {
+    gap: 0.35rem 0.7rem;
+    font-size: 0.68rem;
+  }
+
+  .home-cartoon-root .home-glass-hero h1 {
+    font-size: 2.35rem;
+  }
+
+  .home-cartoon-cloud--one {
+    left: -2rem;
+  }
+
+  .home-cartoon-cloud--two {
+    right: -2.4rem;
+  }
+
+  .home-cartoon-doodle--star {
+    left: 13%;
+  }
+}
