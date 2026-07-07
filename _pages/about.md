@@ -14,27 +14,10 @@ redirect_from:
   <section class="home-2d-stage" aria-labelledby="home-2d-title">
     <div class="home-2d-window" data-home-animate>
       <div class="home-2d-main">
-        <div class="home-2d-profile">
-          <h1 id="home-2d-title" class="home-2d-name">Jing ZHANG 张弪</h1>
-
-          <figure class="home-2d-portrait" data-home-character>
-            <img src="{{ base_path }}/images/mudie.png" alt="Jing ZHANG avatar" fetchpriority="high">
-          </figure>
-
-          <p class="home-2d-profile-note">
-            Ph.D. student<br>
-            <a href="https://www.um.edu.mo/">University of Macau</a>
-          </p>
-
-          <div class="home-2d-mini-links" data-home-animate aria-label="Profile links">
-            <a href="mailto:babeishui0@gmail.com" aria-label="Email" title="Email"><i class="fas fa-fw fa-envelope" aria-hidden="true"></i></a>
-            <a href="https://scholar.google.com/citations?user=wcQ9pHYAAAAJ&hl=zh-CN" aria-label="Google Scholar" title="Google Scholar"><i class="ai ai-google-scholar ai-fw" aria-hidden="true"></i></a>
-            <a href="https://github.com/babeishui0" aria-label="GitHub" title="GitHub"><i class="fab fa-fw fa-github" aria-hidden="true"></i></a>
-          </div>
-        </div>
+        {% include profile-left.html title_id="home-2d-title" %}
 
         <article class="home-2d-about" data-home-panel>
-          <h2 class="home-2d-section-title">About</h2>
+          <h2 class="home-2d-section-title">About Me</h2>
           <p>
             I am a Ph.D. student at <a href="https://www.um.edu.mo/">University of Macau</a>. My research focuses on efficient digital circuits, compute-in-memory architecture, and hardware-software co-design for emerging AI workloads. Before that, I received my M.Phil. degree from <a href="https://www.hkust-gz.edu.cn/">HKUST(GZ)</a>.
           </p>
