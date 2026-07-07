@@ -21,13 +21,12 @@
     },
     (context) => {
       const { reduceMotion, motionOK, finePointer } = context.conditions;
-      const nav = root.querySelector(".home-2d-nav");
       const windowEl = root.querySelector(".home-2d-window");
       const character = root.querySelector("[data-home-character]");
       const panel = root.querySelector("[data-home-panel]");
       const entries = root.querySelectorAll(".home-2d-entry");
       const floatItems = root.querySelectorAll("[data-home-float]");
-      const animated = [nav, windowEl, character, panel, ...entries, ...floatItems].filter(Boolean);
+      const animated = [windowEl, character, panel, ...entries, ...floatItems].filter(Boolean);
 
       if (reduceMotion) {
         gsap.set(animated, {
@@ -42,7 +41,7 @@
       }
 
       if (motionOK) {
-        gsap.set([nav, windowEl], { autoAlpha: 0, y: 18 });
+        gsap.set(windowEl, { autoAlpha: 0, y: 18 });
         gsap.set(character, { autoAlpha: 0, x: -28, rotation: -4, scale: 0.92 });
         gsap.set(panel, { autoAlpha: 0, x: 22, scale: 0.96 });
         gsap.set(entries, { autoAlpha: 0, y: 24, rotation: -2 });
@@ -52,8 +51,7 @@
         });
 
         intro
-          .to(nav, { autoAlpha: 1, y: 0 })
-          .to(windowEl, { autoAlpha: 1, y: 0, scale: 1 }, "<0.08")
+          .to(windowEl, { autoAlpha: 1, y: 0, scale: 1 })
           .to(character, { autoAlpha: 1, x: 0, rotation: -2, scale: 1 }, "<0.16")
           .to(panel, { autoAlpha: 1, x: 0, scale: 1 }, "<0.12")
           .to(entries, {
