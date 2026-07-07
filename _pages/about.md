@@ -1,32 +1,46 @@
 ---
 permalink: /
-title: "Welcome to Jing’s homepage!"
-author_profile: true
+title: "Jing ZHANG / Home"
+author_profile: false
+home_gsap: true
 redirect_from:
   - /about/
   - /about.html
 ---
 
-## About
+{% include base_path %}
 
-I am currently a Ph.D. student at [University of Macau](https://www.um.edu.mo/), supervised by Prof. Jiawei XU. Before that, I received my M.Phil. degree from [The Hong Kong University of Science and Technology (Guangzhou)](https://www.hkust-gz.edu.cn/), supervised by Prof. Shanshi HUANG and Prof. Hongwu JIANG.
+<div class="home-2d-root">
+  <section class="home-2d-stage" aria-labelledby="home-2d-title">
+    <div class="home-2d-window" data-home-animate>
+      <div class="home-2d-main">
+        <div class="home-2d-profile">
+          <figure class="home-2d-portrait" data-home-character>
+            <img src="{{ base_path }}/images/mudie.png" alt="Jing ZHANG avatar" fetchpriority="high">
+            <span class="home-2d-badge" data-home-float>Ph.D.<br>UM</span>
+          </figure>
 
-## Research Interests
+          <div class="home-2d-mini-links" data-home-animate aria-label="Profile links">
+            <a href="mailto:babeishui0@gmail.com">Email</a>
+            <a href="https://scholar.google.com/citations?user=wcQ9pHYAAAAJ&hl=zh-CN">Scholar</a>
+            <a href="https://github.com/babeishui0">GitHub</a>
+          </div>
+        </div>
 
-* Digital Integrated Circuits and Compute-in-Memory Architecture
-* Computer Architecture and Hardware-Software Co-design
-* Large Language Models
-
-## Education
-
-* Ph.D. student at University of Macau
-* M.Phil. degree at The Hong Kong University of Science and Technology (Guangzhou)
-* B.Eng. degree at Beijing Institute of Technology
-
-## News
-
-**[06/19/2026]** **ISCAS'26**: My two ISCAS'26 papers are now available online with DOI links.
-
-**[01/20/2026]** **ISCAS'26**: One first-authored paper, **InFP: A 17.97 TFLOPS/W Reconfigurable SRAM Based Computing-in-Memory Macro for BF16 MAC Operations**, has been accepted by ISCAS’26! Congrats! 🎉
-
-**[01/20/2026]** **ISCAS'26**: One co-authored paper, **CIM-SIFT: An Efficient Compute-in-Memory Accelerator for Real-time SIFT Algorithm**, has been accepted by ISCAS’26! Congrats! 🎉
+        <article class="home-2d-about" data-home-panel>
+          <p class="home-2d-kicker">♡ About Me</p>
+          <h1 id="home-2d-title">Jing ZHANG 张弪</h1>
+          <p class="home-2d-subtitle">Digital ICs · Compute-in-Memory · Architecture</p>
+          <p>
+            I am a Ph.D. student at <a href="https://www.um.edu.mo/">University of Macau</a>. My research focuses on efficient digital circuits, compute-in-memory architecture, and hardware-software co-design for emerging AI workloads. Before that, I received my M.Phil. degree from <a href="https://www.hkust-gz.edu.cn/">HKUST(GZ)</a>.
+          </p>
+          <ul class="home-2d-tags" aria-label="Research interests">
+            <li>Digital ICs</li>
+            <li>Compute-in-Memory</li>
+            <li>Computer Architecture</li>
+          </ul>
+        </article>
+      </div>
+    </div>
+  </section>
+</div>

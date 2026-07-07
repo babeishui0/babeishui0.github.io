@@ -2,7 +2,8 @@
 layout: archive
 permalink: /year-archive/
 title: "Blog posts"
-author_profile: true
+author_profile: false
+cartoon_page: true
 redirect_from:
   - /wordpress/blog-posts/
 ---
@@ -15,5 +16,5 @@ redirect_from:
     <h2 id="{{ year | slugify }}" class="archive__subtitle">{{ year }}</h2>
     {% capture written_year %}{{ year }}{% endcapture %}
   {% endif %}
-  {% include archive-single.html %}
+  {% include archive-single.html archive_card="post" %}
 {% endfor %}
