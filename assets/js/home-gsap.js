@@ -24,7 +24,7 @@
       const windowEl = root.querySelector(".home-2d-window");
       const character = root.querySelector("[data-home-character]");
       const panel = root.querySelector("[data-home-panel]");
-      const entries = root.querySelectorAll(".home-2d-entry");
+      const entries = root.querySelectorAll(".home-2d-entry, .home-2d-mini-links a");
       const floatItems = root.querySelectorAll("[data-home-float]");
       const animated = [windowEl, character, panel, ...entries, ...floatItems].filter(Boolean);
 

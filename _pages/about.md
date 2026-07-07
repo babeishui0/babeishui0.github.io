@@ -47,26 +47,10 @@ redirect_from:
       </div>
     </div>
 
-    <div class="home-2d-entry-grid" data-home-animate aria-label="Sub entries">
-      <a class="home-2d-entry home-2d-entry--pink" href="{{ base_path }}/publications/">
-        <span>01</span>
-        <strong>Publications</strong>
-      </a>
-
-      <a class="home-2d-entry home-2d-entry--blue" href="{{ base_path }}/year-archive/">
-        <span>02</span>
-        <strong>Blog</strong>
-      </a>
-
-      <a class="home-2d-entry home-2d-entry--mint" href="{{ base_path }}/cv/">
-        <span>03</span>
-        <strong>CV</strong>
-      </a>
-
-      <a class="home-2d-entry home-2d-entry--cream" href="https://scholar.google.com/citations?user=wcQ9pHYAAAAJ&hl=zh-CN">
-        <span>04</span>
-        <strong>Scholar</strong>
-      </a>
+    <div class="home-2d-mini-links" data-home-animate aria-label="Profile links">
+      <a href="mailto:babeishui0@gmail.com">Email</a>
+      <a href="https://scholar.google.com/citations?user=wcQ9pHYAAAAJ&hl=zh-CN">Scholar</a>
+      <a href="https://github.com/babeishui0">GitHub</a>
     </div>
   </section>
 </div>
