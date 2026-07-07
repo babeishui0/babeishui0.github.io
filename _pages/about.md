@@ -17,13 +17,17 @@ redirect_from:
         <div class="home-2d-profile">
           <figure class="home-2d-portrait" data-home-character>
             <img src="{{ base_path }}/images/mudie.png" alt="Jing ZHANG avatar" fetchpriority="high">
-            <span class="home-2d-badge" data-home-float>Ph.D.<br>UM</span>
           </figure>
 
+          <p class="home-2d-profile-note">
+            Ph.D. student<br>
+            <a href="https://www.um.edu.mo/">University of Macau</a>
+          </p>
+
           <div class="home-2d-mini-links" data-home-animate aria-label="Profile links">
-            <a href="mailto:babeishui0@gmail.com">Email</a>
-            <a href="https://scholar.google.com/citations?user=wcQ9pHYAAAAJ&hl=zh-CN">Scholar</a>
-            <a href="https://github.com/babeishui0">GitHub</a>
+            <a href="mailto:babeishui0@gmail.com"><i class="fas fa-fw fa-envelope" aria-hidden="true"></i><span>Email</span></a>
+            <a href="https://scholar.google.com/citations?user=wcQ9pHYAAAAJ&hl=zh-CN"><i class="ai ai-google-scholar ai-fw" aria-hidden="true"></i><span>Scholar</span></a>
+            <a href="https://github.com/babeishui0"><i class="fab fa-fw fa-github" aria-hidden="true"></i><span>GitHub</span></a>
           </div>
         </div>
 
@@ -39,6 +43,15 @@ redirect_from:
             <li>Compute-in-Memory</li>
             <li>Computer Architecture</li>
           </ul>
+
+          <section class="home-2d-news" aria-labelledby="home-news-title">
+            <h2 id="home-news-title">News</h2>
+            <ul>
+              <li><time datetime="2026-06-19">06/19/2026</time><span><strong>ISCAS'26:</strong> My two ISCAS'26 papers are now available online with DOI links.</span></li>
+              <li><time datetime="2026-01-20">01/20/2026</time><span><strong>ISCAS'26:</strong> One first-authored paper, <strong>InFP: A 17.97 TFLOPS/W Reconfigurable SRAM Based Computing-in-Memory Macro for BF16 MAC Operations</strong>, has been accepted by ISCAS'26.</span></li>
+              <li><time datetime="2026-01-20">01/20/2026</time><span><strong>ISCAS'26:</strong> One co-authored paper, <strong>CIM-SIFT: An Efficient Compute-in-Memory Accelerator for Real-time SIFT Algorithm</strong>, has been accepted by ISCAS'26.</span></li>
+            </ul>
+          </section>
         </article>
       </div>
     </div>
