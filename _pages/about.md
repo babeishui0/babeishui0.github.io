@@ -12,23 +12,16 @@ redirect_from:
 
 <div class="home-2d-root">
   <section class="home-2d-stage" aria-labelledby="home-2d-title">
-    <div class="home-2d-sky" aria-hidden="true">
-      <span class="home-2d-cloud home-2d-cloud--one" data-home-float></span>
-      <span class="home-2d-cloud home-2d-cloud--two" data-home-float></span>
-      <span class="home-2d-sparkle home-2d-sparkle--one" data-home-float>✦</span>
-    </div>
-
     <div class="home-2d-window" data-home-animate>
-      <div class="home-2d-window__bar" aria-hidden="true">
-        <span></span>
-        <span></span>
-        <span></span>
-      </div>
-
       <div class="home-2d-main">
         <figure class="home-2d-portrait" data-home-character>
           <img src="{{ base_path }}/images/mudie.png" alt="Jing ZHANG avatar" fetchpriority="high">
           <span class="home-2d-badge" data-home-float>Ph.D.<br>UM</span>
+          <figcaption class="home-2d-mini-links" data-home-animate aria-label="Profile links">
+            <a href="mailto:babeishui0@gmail.com">Email</a>
+            <a href="https://scholar.google.com/citations?user=wcQ9pHYAAAAJ&hl=zh-CN">Scholar</a>
+            <a href="https://github.com/babeishui0">GitHub</a>
+          </figcaption>
         </figure>
 
         <article class="home-2d-about" data-home-panel>
@@ -45,12 +38,6 @@ redirect_from:
           </ul>
         </article>
       </div>
-    </div>
-
-    <div class="home-2d-mini-links" data-home-animate aria-label="Profile links">
-      <a href="mailto:babeishui0@gmail.com">Email</a>
-      <a href="https://scholar.google.com/citations?user=wcQ9pHYAAAAJ&hl=zh-CN">Scholar</a>
-      <a href="https://github.com/babeishui0">GitHub</a>
     </div>
   </section>
 </div>
