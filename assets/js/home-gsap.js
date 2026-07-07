@@ -1,16 +1,12 @@
 (function () {
-  const root = document.querySelector(".home-glass-root");
+  const root = document.querySelector(".home-2d-root");
 
   if (!root || !window.gsap) {
     return;
   }
 
-  if (window.ScrollTrigger) {
-    gsap.registerPlugin(ScrollTrigger);
-  }
-
   gsap.defaults({
-    duration: 0.72,
+    duration: 0.68,
     ease: "power3.out",
     overwrite: "auto"
   });
@@ -25,125 +21,81 @@
     },
     (context) => {
       const { reduceMotion, motionOK, finePointer } = context.conditions;
-      const heroItems = root.querySelectorAll("[data-home-animate]");
-      const revealItems = root.querySelectorAll("[data-home-reveal]");
-      const cards = root.querySelectorAll("[data-tilt]");
+      const nav = root.querySelector(".home-2d-nav");
+      const windowEl = root.querySelector(".home-2d-window");
+      const character = root.querySelector("[data-home-character]");
+      const panel = root.querySelector("[data-home-panel]");
+      const entries = root.querySelectorAll(".home-2d-entry");
       const floatItems = root.querySelectorAll("[data-home-float]");
+      const animated = [nav, windowEl, character, panel, ...entries, ...floatItems].filter(Boolean);
 
       if (reduceMotion) {
-        gsap.set([...heroItems, ...revealItems, ...cards, ...floatItems], {
+        gsap.set(animated, {
           autoAlpha: 1,
           x: 0,
           y: 0,
           scale: 1,
           rotation: 0,
-          rotationX: 0,
-          rotationY: 0,
           clearProps: "transform,visibility"
         });
         return;
       }
 
       if (motionOK) {
-        gsap.set(heroItems, { autoAlpha: 0, y: 24, scale: 0.98 });
-        gsap.set(revealItems, { autoAlpha: 0, y: 34, scale: 0.985 });
+        gsap.set([nav, windowEl], { autoAlpha: 0, y: 18 });
+        gsap.set(character, { autoAlpha: 0, x: -28, rotation: -4, scale: 0.92 });
+        gsap.set(panel, { autoAlpha: 0, x: 22, scale: 0.96 });
+        gsap.set(entries, { autoAlpha: 0, y: 24, rotation: -2 });
 
         const intro = gsap.timeline({
-          defaults: { duration: 0.78, ease: "power3.out" }
+          defaults: { duration: 0.68, ease: "power3.out" }
         });
 
         intro
-          .to(heroItems, { autoAlpha: 1, y: 0, scale: 1, stagger: 0.08 })
-          .from(".home-glass-avatar", {
-            autoAlpha: 0,
-            scale: 0.86,
-            rotation: -3,
-            duration: 0.86
-          }, "<0.12")
-          .from(".home-glass-facts li", {
-            autoAlpha: 0,
-            y: 14,
-            stagger: 0.08,
-            duration: 0.48
+          .to(nav, { autoAlpha: 1, y: 0 })
+          .to(windowEl, { autoAlpha: 1, y: 0, scale: 1 }, "<0.08")
+          .to(character, { autoAlpha: 1, x: 0, rotation: -2, scale: 1 }, "<0.16")
+          .to(panel, { autoAlpha: 1, x: 0, scale: 1 }, "<0.12")
+          .to(entries, {
+            autoAlpha: 1,
+            y: 0,
+            rotation: (index) => [-1.5, 1.2, -0.8, 1.5][index % 4],
+            stagger: 0.08
           }, "<0.18")
-          .to(".home-glass-hero", {
-            y: -6,
-            duration: 3.2,
+          .to(character, {
+            y: -7,
+            rotation: 1.2,
+            duration: 2.8,
             ease: "sine.inOut",
             repeat: -1,
             yoyo: true
           }, ">");
 
         gsap.to(floatItems, {
-          y: (index) => (index % 2 === 0 ? -10 : 10),
-          x: (index) => (index % 2 === 0 ? 8 : -8),
-          rotation: (index) => (index % 2 === 0 ? 2 : -2),
-          duration: 3.4,
+          x: (index) => (index % 2 === 0 ? 10 : -10),
+          y: (index) => (index % 2 === 0 ? -9 : 9),
+          rotation: (index) => (index % 2 === 0 ? 3 : -3),
+          duration: 3.2,
           ease: "sine.inOut",
-          stagger: 0.18,
+          stagger: 0.16,
           repeat: -1,
           yoyo: true
         });
-
-        if (window.ScrollTrigger) {
-          ScrollTrigger.batch(revealItems, {
-            start: "top 86%",
-            once: true,
-            onEnter: (batch) => {
-              gsap.to(batch, {
-                autoAlpha: 1,
-                y: 0,
-                scale: 1,
-                stagger: { each: 0.07, from: "start" },
-                duration: 0.72
-              });
-            }
-          });
-
-          gsap.to(root, {
-            "--home-glass-drift": "28px",
-            ease: "none",
-            scrollTrigger: {
-              trigger: root,
-              start: "top top",
-              end: "bottom bottom",
-              scrub: 0.8
-            }
-          });
-
-          if (document.fonts && document.fonts.ready) {
-            document.fonts.ready.then(() => ScrollTrigger.refresh());
-          }
-        } else {
-          gsap.to(revealItems, {
-            autoAlpha: 1,
-            y: 0,
-            scale: 1,
-            stagger: 0.07
-          });
-        }
       }
 
       if (finePointer) {
-        cards.forEach((card) => {
-          const rotateXTo = gsap.quickTo(card, "rotationX", { duration: 0.45, ease: "power3" });
-          const rotateYTo = gsap.quickTo(card, "rotationY", { duration: 0.45, ease: "power3" });
-          const yTo = gsap.quickTo(card, "y", { duration: 0.45, ease: "power3" });
+        entries.forEach((entry) => {
+          const yTo = gsap.quickTo(entry, "y", { duration: 0.28, ease: "power2.out" });
+          const rotationTo = gsap.quickTo(entry, "rotation", { duration: 0.28, ease: "power2.out" });
 
-          card.addEventListener("pointermove", (event) => {
-            const rect = card.getBoundingClientRect();
-            const relX = (event.clientX - rect.left) / rect.width - 0.5;
-            const relY = (event.clientY - rect.top) / rect.height - 0.5;
-
-            rotateXTo(relY * -5);
-            rotateYTo(relX * 5);
-            yTo(-4);
+          entry.addEventListener("pointerenter", () => {
+            yTo(-5);
+            rotationTo(0);
           });
 
-          card.addEventListener("pointerleave", () => {
-            rotateXTo(0);
-            rotateYTo(0);
+          entry.addEventListener("pointerleave", () => {
             yTo(0);
+            rotationTo(0);
           });
         });
       }
