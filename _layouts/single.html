@@ -15,7 +15,11 @@ layout: default
 {% endif %}
 
 <div id="main" role="main"{% if page.home_gsap %} class="home-glass-main"{% endif %}>
-  {% include sidebar.html %}
+  {% if page.home_gsap %}
+    {% include profile-left.html title_id="home-2d-title" %}
+  {% else %}
+    {% include sidebar.html %}
+  {% endif %}
 
   <article class="page" itemscope itemtype="http://schema.org/CreativeWork">
     {% if page.title %}<meta itemprop="headline" content="{{ page.title | markdownify | strip_html | strip_newlines | escape_once }}">{% endif %}

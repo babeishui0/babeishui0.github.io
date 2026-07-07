@@ -3328,3 +3328,67 @@ html[data-theme="dark"] .home-2d-mini-links i {
     margin-bottom: 1.7rem !important;
   }
 }
+
+/* Homepage uses the same visible layout as archive pages */
+#main.home-glass-main,
+#main.flat-2d-main {
+  display: grid;
+  grid-template-columns: minmax(10rem, 15rem) minmax(0, 760px);
+  align-items: start;
+  column-gap: clamp(1.6rem, 4vw, 3rem);
+  width: 100%;
+  max-width: 1180px !important;
+  margin: 0 auto !important;
+  padding: 2.2rem 1.1rem 3rem !important;
+  overflow: visible;
+  background: var(--global-bg-color) !important;
+}
+
+#main.home-glass-main > .home-2d-profile,
+#main.flat-2d-main > .home-2d-profile {
+  grid-column: 1;
+  max-width: 15rem;
+}
+
+#main.home-glass-main > .page,
+#main.flat-2d-main > .archive {
+  grid-column: 2;
+  min-width: 0;
+  width: 100% !important;
+  max-width: 760px !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+#main.home-glass-main .home-2d-root,
+#main.home-glass-main .home-2d-stage,
+#main.home-glass-main .home-2d-window,
+#main.home-glass-main .home-2d-about {
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  padding: 0;
+}
+
+#main.home-glass-main .home-2d-window {
+  transform-origin: left top;
+}
+
+@media (max-width: 64em) {
+  #main.home-glass-main,
+  #main.flat-2d-main {
+    display: block;
+    max-width: 780px !important;
+  }
+
+  #main.home-glass-main > .home-2d-profile,
+  #main.flat-2d-main > .home-2d-profile {
+    max-width: 15rem;
+    margin-bottom: 1.7rem !important;
+  }
+
+  #main.home-glass-main > .page,
+  #main.flat-2d-main > .archive {
+    max-width: 100% !important;
+  }
+}

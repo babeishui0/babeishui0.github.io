@@ -1,5 +1,5 @@
 (function () {
-  const root = document.querySelector(".home-2d-root");
+  const root = document.querySelector("#main.home-glass-main") || document.querySelector(".home-2d-root");
 
   if (!root || !window.gsap) {
     return;
