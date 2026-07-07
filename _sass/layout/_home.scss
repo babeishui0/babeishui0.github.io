@@ -2904,3 +2904,178 @@ html[data-theme="dark"] .home-2d-mini-links i {
     gap: 0.16rem;
   }
 }
+
+/* Homepage structure and archive rows */
+.home-2d-name {
+  margin: 0 0 0.85rem;
+  color: var(--global-text-color);
+  font-family: $sans-serif;
+  font-size: clamp(1.72rem, 4vw, 2.55rem);
+  letter-spacing: 0;
+  line-height: 1.08;
+}
+
+.home-2d-profile-note {
+  margin-top: 0.72rem;
+}
+
+.home-2d-mini-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+  margin-top: 0.75rem;
+}
+
+.home-2d-mini-links a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.15rem;
+  height: 2.15rem;
+  min-height: 0;
+  padding: 0;
+  border: 1px solid var(--global-border-color) !important;
+  border-radius: 8px;
+  color: var(--global-text-color) !important;
+  font-size: 1.2rem;
+}
+
+.home-2d-mini-links i {
+  width: auto;
+  color: #d47b9f;
+}
+
+.home-2d-section-title,
+.home-2d-education h2,
+.home-2d-news h2 {
+  margin: 0 0 0.72rem;
+  color: var(--global-text-color);
+  font-family: $sans-serif;
+  font-size: 1.15rem;
+  letter-spacing: 0;
+}
+
+.home-2d-section-title {
+  margin-top: 0;
+}
+
+.home-2d-education {
+  margin-top: 1.5rem;
+  padding-top: 1.15rem;
+  border-top: 1px solid var(--global-border-color);
+}
+
+.home-2d-education ol {
+  position: relative;
+  display: grid;
+  gap: 0.82rem;
+  margin: 0;
+  padding: 0 0 0 1.1rem;
+  list-style: none;
+}
+
+.home-2d-education ol::before {
+  content: "";
+  position: absolute;
+  top: 0.34rem;
+  bottom: 0.34rem;
+  left: 0.18rem;
+  width: 1px;
+  background: var(--global-border-color);
+}
+
+.home-2d-education li {
+  position: relative;
+  display: grid;
+  grid-template-columns: 6.4rem minmax(0, 1fr);
+  gap: 0.72rem;
+  color: var(--global-text-color);
+  font-size: 0.92rem;
+  line-height: 1.5;
+}
+
+.home-2d-education li::before {
+  content: "";
+  position: absolute;
+  top: 0.42rem;
+  left: -1.08rem;
+  width: 0.42rem;
+  height: 0.42rem;
+  border-radius: 50%;
+  background: var(--global-text-color);
+}
+
+.home-2d-education__time {
+  color: var(--global-text-color-light);
+  font-family: $sans-serif;
+  font-size: 0.78rem;
+  font-weight: 800;
+}
+
+#main.flat-2d-main .publication-list__body,
+#main.flat-2d-main .archive-message-card > .archive__item,
+#main.flat-2d-main .archive .archive-message-card > .archive__item {
+  display: grid;
+  grid-template-columns: 6.4rem minmax(0, 1fr);
+  gap: 0.24rem 0.72rem;
+}
+
+#main.flat-2d-main .publication-list__meta,
+#main.flat-2d-main .archive-message-card__date {
+  grid-column: 1;
+  grid-row: 1 / span 4;
+  margin: 0;
+  color: var(--global-text-color-light);
+  font-family: $sans-serif;
+  font-size: 0.78rem;
+  font-weight: 800;
+  line-height: 1.35;
+}
+
+#main.flat-2d-main .publication-list__title,
+#main.flat-2d-main .publication-list__authors,
+#main.flat-2d-main .publication-list__links,
+#main.flat-2d-main .archive-message-card .archive__item-title,
+#main.flat-2d-main .archive-message-card p,
+#main.flat-2d-main .archive-message-card .archive__item-excerpt {
+  grid-column: 2;
+}
+
+#main.flat-2d-main .publication-list__title,
+#main.flat-2d-main .archive-message-card .archive__item-title,
+#main.flat-2d-main .archive .archive-message-card .archive__item-title {
+  margin: 0 0 0.22rem !important;
+}
+
+#main.flat-2d-main .publication-list__authors,
+#main.flat-2d-main .publication-list__links,
+#main.flat-2d-main .archive-message-card p {
+  margin-bottom: 0.18rem;
+  font-size: 0.92rem;
+  line-height: 1.5;
+}
+
+@media (max-width: 37.5em) {
+  .home-2d-education li,
+  #main.flat-2d-main .publication-list__body,
+  #main.flat-2d-main .archive-message-card > .archive__item,
+  #main.flat-2d-main .archive .archive-message-card > .archive__item {
+    grid-template-columns: 1fr;
+  }
+
+  #main.flat-2d-main .publication-list__meta,
+  #main.flat-2d-main .archive-message-card__date,
+  #main.flat-2d-main .publication-list__title,
+  #main.flat-2d-main .publication-list__authors,
+  #main.flat-2d-main .publication-list__links,
+  #main.flat-2d-main .archive-message-card .archive__item-title,
+  #main.flat-2d-main .archive-message-card p,
+  #main.flat-2d-main .archive-message-card .archive__item-excerpt {
+    grid-column: 1;
+  }
+
+  #main.flat-2d-main .publication-list__meta,
+  #main.flat-2d-main .archive-message-card__date {
+    grid-row: auto;
+  }
+}
