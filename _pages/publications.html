@@ -2,8 +2,7 @@
 layout: archive
 title: "Publications"
 permalink: /publications/
-author_profile: false
-cartoon_page: true
+author_profile: true
 ---
 
 {% if site.author.googlescholar %}
@@ -24,12 +23,11 @@ cartoon_page: true
         <h2>{{ category[1].title }}</h2><hr />
         {% assign title_shown = true %}
       {% endunless %}
-      {% include archive-single.html archive_card="publication" %}
+      {% include archive-single.html %}
     {% endfor %}
   {% endfor %}
 {% else %}
   {% for post in site.publications reversed %}
-    {% include archive-single.html archive_card="publication" %}
+    {% include archive-single.html %}
   {% endfor %}
 {% endif %}
-

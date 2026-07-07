@@ -2,8 +2,7 @@
 layout: archive
 title: "CV"
 permalink: /cv/
-author_profile: false
-cartoon_page: true
+author_profile: true
 redirect_from:
   - /resume
 ---

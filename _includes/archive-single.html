@@ -12,55 +12,7 @@
   {% assign title = post.title %}
 {% endif %}
 
-{% assign archive_type = include.type | default: "list" %}
-{% assign archive_card_class = "" %}
-{% if archive_type == 'list' %}
-  {% assign post_path = post.path | default: "" %}
-  {% if include.archive_card == 'publication' %}
-    {% assign archive_card_class = " archive-message-card archive-message-card--publication" %}
-  {% elsif include.archive_card == 'post' %}
-    {% assign archive_card_class = " archive-message-card archive-message-card--post" %}
-  {% elsif post.collection == 'publications' %}
-    {% assign archive_card_class = " archive-message-card archive-message-card--publication" %}
-  {% elsif post.collection == 'posts' %}
-    {% assign archive_card_class = " archive-message-card archive-message-card--post" %}
-  {% elsif post_path contains '_posts/' %}
-    {% assign archive_card_class = " archive-message-card archive-message-card--post" %}
-  {% endif %}
-{% endif %}
-
-{% assign is_post_archive_card = false %}
-{% if archive_card_class contains 'archive-message-card--post' %}
-  {% assign is_post_archive_card = true %}
-{% endif %}
-
-{% if include.archive_card == 'publication' and archive_type == 'list' %}
-<div class="publication-list__item">
-  <article class="publication-list__body" itemscope itemtype="http://schema.org/CreativeWork">
-    <div class="publication-list__meta">{{ post.venue }} '{{ post.date | default: "1900-01-01" | date: "%y" }}</div>
-
-    <h2 class="archive__item-title publication-list__title" itemprop="headline">
-      {% if post.link %}
-        <a href="{{ post.link }}">{{ title }}</a> <a href="{{ base_path }}{{ post.url }}" rel="permalink"><i class="fa fa-link" aria-hidden="true" title="permalink"></i><span class="sr-only">Permalink</span></a>
-      {% else %}
-        <a href="{{ base_path }}{{ post.url }}" rel="permalink">{{ title }}</a>
-      {% endif %}
-    </h2>
-
-    {% if post.Authors %}
-      <p class="publication-list__authors">{{ post.Authors | markdownify | remove: '<p>' | remove: '</p>' }}</p>
-    {% endif %}
-
-    <p class="publication-list__links">
-      {% if post.paperurl %}<a href="{{ post.paperurl }}">[pdf]</a>{% endif %}
-      {% if post.slidesurl %}<a href="{{ post.slidesurl }}">[slides]</a>{% endif %}
-      {% if post.bibtexurl %}<a href="{{ post.bibtexurl }}">[bibtex]</a>{% endif %}
-      {% if post.doiurl %}<a href="{{ post.doiurl }}">[doi]</a>{% endif %}
-    </p>
-  </article>
-</div>
-{% else %}
-<div class="{{ archive_type }}__item{{ archive_card_class }}">
+<div class="{{ include.type | default: "list" }}__item">
   <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
     {% if include.type == "grid" and teaser %}
       <div class="archive__item-teaser">
@@ -72,10 +24,6 @@
           {% endif %}
           alt="">
       </div>
-    {% endif %}
-
-    {% if is_post_archive_card and post.date %}
-      <div class="archive-message-card__date"><time datetime="{{ post.date | default: "1900-01-01" | date_to_xmlschema }}">{{ post.date | default: "1900-01-01" | date: "%B %d, %Y" }}</time></div>
     {% endif %}
 
     <h2 class="archive__item-title" itemprop="headline">
@@ -95,9 +43,7 @@
         {% elsif post.collection == 'publications' %}
           <p>Published in <b><i>{{ post.venue }}</i>, {{ post.date | default: "1900-01-01" | date: "%Y" }}</b> </p>
         {% elsif post.date %}
-          {% unless is_post_archive_card %}
-            <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> {{ site.data.ui-text[site.locale].date_label | default: "Published:" }}</strong> <time datetime="{{ post.date | default: "1900-01-01" | date_to_xmlschema }}">{{ post.date | default: "1900-01-01" | date: "%B %d, %Y" }}</time></p>
-          {% endunless %}
+         <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> {{ site.data.ui-text[site.locale].date_label | default: "Published:" }}</strong> <time datetime="{{ post.date | default: "1900-01-01" | date_to_xmlschema }}">{{ post.date | default: "1900-01-01" | date: "%B %d, %Y" }}</time></p>
         {% endif %}
 
     {% if post.excerpt and site.read_more != 'enabled' %}
@@ -144,4 +90,3 @@
 
   </article>
 </div>
-{% endif %}
