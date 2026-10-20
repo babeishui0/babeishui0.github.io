@@ -1,11 +1,7 @@
 <script type="module" src="{{ base_path }}/assets/js/main.min.js"></script>
 <script src="{{ '/assets/js/glass-motion.js' | relative_url }}" defer></script>
-{% if page.share %}
-  <script src="{{ '/assets/js/glass-share.js' | relative_url }}" defer></script>
-{% endif %}
-
-{% if page.collection == 'posts' or page.collection == 'publications' %}
-  <script src="{{ '/assets/js/article-reading.js' | relative_url }}" defer></script>
-{% endif %}
+<script src="{{ '/assets/js/glass-share.js' | relative_url }}" defer></script>
+<script src="{{ '/assets/js/article-reading.js' | relative_url }}" defer></script>
+<script src="{{ '/assets/js/glass-navigation.js' | relative_url }}" defer></script>
 
 {% include analytics.html %}

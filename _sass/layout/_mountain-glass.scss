@@ -1,23 +1,28 @@
 /* Mountain wallpaper and glass surfaces; the existing page grid stays intact. */
 body.mountain-glass {
+  --site-bar-height: 56px;
   --text-heading: 1.28rem;
   --text-item-title: 1.05rem;
   --text-body: 0.92rem;
   --text-meta: 0.78rem;
-  --glass-surface: rgba(248, 251, 249, 0.84);
-  --glass-chrome: rgba(241, 247, 244, 0.8);
-  --glass-inset: rgba(255, 255, 255, 0.3);
-  --glass-control: rgba(255, 255, 255, 0.54);
-  --glass-control-edge: rgba(44, 72, 61, 0.3);
-  --glass-control-shadow: rgba(9, 25, 24, 0.1);
+  --glass-surface: rgba(238, 243, 240, 0.52);
+  --glass-chrome: rgba(242, 246, 243, 0.42);
+  --glass-inset: rgba(255, 255, 255, 0.16);
+  --glass-control: rgba(255, 255, 255, 0.24);
+  --glass-control-hover: rgba(255, 255, 255, 0.42);
+  --glass-control-edge: rgba(255, 255, 255, 0.48);
+  --glass-control-shadow: rgba(12, 24, 22, 0.12);
   --glass-solid: #edf2ef;
-  --glass-edge: rgba(255, 255, 255, 0.62);
-  --glass-highlight: rgba(255, 255, 255, 0.65);
-  --glass-shadow: rgba(9, 25, 24, 0.13);
-  --wallpaper-tint: rgba(219, 231, 225, 0.12);
-  --global-text-color: #202f2d;
-  --global-text-color-light: #435650;
-  --global-link-color: #225d50;
+  --glass-edge: rgba(255, 255, 255, 0.36);
+  --glass-highlight: rgba(255, 255, 255, 0.72);
+  --glass-shade: rgba(25, 45, 38, 0.08);
+  --glass-sheen: linear-gradient(135deg, rgba(255,255,255,0.3), rgba(255,255,255,0.04) 42%, rgba(255,255,255,0.01) 70%, rgba(255,255,255,0.15));
+  --glass-filter: blur(48px) saturate(165%) brightness(1.1);
+  --glass-shadow: rgba(9, 25, 24, 0.16);
+  --wallpaper-tint: rgba(219, 231, 225, 0.05);
+  --global-text-color: #172521;
+  --global-text-color-light: #34483f;
+  --global-link-color: #164e40;
   --global-link-color-hover: #143e35;
   --global-link-color-visited: #365e55;
   --global-masthead-link-color: #30483f;
@@ -27,6 +32,7 @@ body.mountain-glass {
   --global-thead-color: rgba(230, 241, 234, 0.8);
   isolation: isolate;
   background: #485954 !important;
+  padding-top: var(--site-bar-height) !important;
 
   &::before,
   &::after {
@@ -39,8 +45,8 @@ body.mountain-glass {
   &::before {
     z-index: -2;
     background: url("../../images/mountain-background.jpg") center 48% / cover no-repeat;
-    filter: blur(4px);
-    transform: scale(1.035);
+    filter: blur(1px);
+    transform: scale(1.01);
   }
 
   &::after {
@@ -50,15 +56,19 @@ body.mountain-glass {
 }
 
 html[data-theme="dark"] body.mountain-glass {
-  --glass-surface: rgba(19, 35, 33, 0.84);
-  --glass-chrome: rgba(17, 31, 30, 0.8);
-  --glass-inset: rgba(188, 215, 200, 0.07);
-  --glass-control: rgba(99, 132, 116, 0.27);
-  --glass-control-edge: rgba(222, 243, 231, 0.4);
-  --glass-control-shadow: rgba(0, 9, 8, 0.25);
+  --glass-surface: rgba(18, 27, 25, 0.52);
+  --glass-chrome: rgba(18, 27, 25, 0.4);
+  --glass-inset: rgba(226, 239, 231, 0.06);
+  --glass-control: rgba(230, 243, 237, 0.09);
+  --glass-control-hover: rgba(230, 243, 237, 0.18);
+  --glass-control-edge: rgba(235, 250, 241, 0.22);
+  --glass-control-shadow: rgba(0, 9, 8, 0.2);
   --glass-solid: #182b28;
-  --glass-edge: rgba(222, 243, 231, 0.19);
-  --glass-highlight: rgba(236, 250, 243, 0.12);
+  --glass-edge: rgba(222, 243, 231, 0.18);
+  --glass-highlight: rgba(236, 250, 243, 0.3);
+  --glass-shade: rgba(0, 8, 6, 0.25);
+  --glass-sheen: linear-gradient(135deg, rgba(237,255,246,0.12), rgba(237,255,246,0.02) 42%, transparent 70%, rgba(237,255,246,0.06));
+  --glass-filter: blur(48px) saturate(150%) brightness(0.72);
   --glass-shadow: rgba(0, 9, 8, 0.25);
   --wallpaper-tint: rgba(7, 19, 18, 0.2);
   --global-text-color: #eef5f1;
@@ -74,17 +84,63 @@ html[data-theme="dark"] body.mountain-glass {
 }
 
 @mixin mountain-glass-surface {
-  background: var(--glass-surface) !important;
+  isolation: isolate;
+  background: transparent !important;
   border: 1px solid var(--glass-edge) !important;
-  border-radius: 20px !important;
-  box-shadow: 0 12px 36px var(--glass-shadow), inset 0 1px 0 var(--glass-highlight) !important;
-  -webkit-backdrop-filter: blur(22px) saturate(120%);
-  backdrop-filter: blur(22px) saturate(120%);
+  border-radius: 24px !important;
+  box-shadow: 0 8px 32px -12px var(--glass-shadow), 0 1px 4px var(--glass-shade), inset 0 1px 0 var(--glass-highlight), inset 0 -1px 0 var(--glass-shade) !important;
+  -webkit-backdrop-filter: none;
+  backdrop-filter: none;
+
+  // The backing owns blur; content always paints above it, including in motion.
+  &::before {
+    content: "";
+    display: block !important;
+    opacity: 1;
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    border-radius: inherit;
+    pointer-events: none;
+    background: var(--glass-sheen), var(--glass-surface);
+    -webkit-backdrop-filter: var(--glass-filter);
+    backdrop-filter: var(--glass-filter);
+  }
+}
+
+@mixin mountain-glass-control {
+  background: var(--glass-sheen), var(--glass-control) !important;
+  border: 1px solid var(--glass-control-edge) !important;
+  box-shadow: 0 2px 6px var(--glass-control-shadow), inset 0 1px 0 var(--glass-highlight), inset 0 -1px 0 var(--glass-shade) !important;
 }
 
 body.mountain-glass {
+  overflow: hidden;
+  display: grid;
+  grid-template-rows: minmax(0, 1fr) auto;
+  height: 100dvh;
+  min-height: 0;
+  box-sizing: border-box;
+  margin-bottom: 0 !important;
+  padding-bottom: 0 !important;
   // A retained opacity animation also isolates descendants from the wallpaper.
-  #main { animation: none; }
+  #main { animation: none; flex: 0 0 auto; min-height: 0; }
+
+  .site-scrollport {
+    min-height: 0;
+    overflow: auto;
+    overflow-x: hidden;
+    overscroll-behavior-y: contain;
+    scrollbar-gutter: stable;
+    scroll-padding-block: 1rem;
+  }
+
+  .site-scrollport.is-transitioning {
+    overflow-y: hidden;
+    overflow-anchor: none;
+  }
+
+  .site-scrollport > #main { min-height: 100%; box-sizing: border-box; }
 
   /* Remove the old opaque canvas beneath the individual glass panels. */
   #main.home-glass-main,
@@ -102,13 +158,58 @@ body.mountain-glass {
     will-change: auto;
   }
 
-  .masthead,
-  .page__footer {
+  .masthead {
     @include mountain-glass-surface;
-    background: var(--glass-chrome) !important;
+    &::before { background: var(--glass-sheen), var(--glass-chrome); }
     border-radius: 0 !important;
     border-left: 0 !important;
     border-right: 0 !important;
+  }
+
+  .page__footer {
+    isolation: isolate;
+    position: relative;
+    bottom: auto;
+    float: none;
+    flex: 0 0 auto;
+    margin-top: 0;
+    border: 0;
+    background: transparent;
+    color: rgba(242, 247, 244, 0.78);
+
+    &::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+      pointer-events: none;
+      background: linear-gradient(180deg, rgba(12, 25, 22, 0), rgba(12, 25, 22, 0.64));
+      -webkit-backdrop-filter: blur(12px);
+      backdrop-filter: blur(12px);
+      -webkit-mask-image: linear-gradient(180deg, transparent, #000 55%);
+      mask-image: linear-gradient(180deg, transparent, #000 55%);
+    }
+
+    footer {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      gap: 0.4rem 1.1rem;
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 1.1rem 1.1rem 1rem;
+      text-align: center;
+      font-size: 0.72rem;
+      line-height: 1.65;
+      &::before, &::after { display: none; }
+    }
+
+    .page__footer-updated {
+      font-size: 0.65rem;
+      line-height: 1.7;
+      letter-spacing: 0.02em;
+    }
   }
 
   .masthead .greedy-nav,
@@ -116,6 +217,16 @@ body.mountain-glass {
   .masthead .visible-links {
     background: transparent !important;
   }
+
+  // Reserve navigation geometry before its menu script initializes.
+  .masthead { height: var(--site-bar-height); }
+  .masthead__inner-wrap {
+    height: 100%;
+    padding-block: 0;
+    display: flex;
+    align-items: center;
+  }
+  .masthead__menu { width: 100%; }
 
   .masthead .greedy-nav a {
     border: 1px solid transparent !important;
@@ -126,15 +237,21 @@ body.mountain-glass {
     &::before { display: none; }
   }
 
-  .masthead .greedy-nav a:hover,
-  .masthead .masthead__menu-item.selected a {
+  .masthead .greedy-nav a:hover {
     background: var(--glass-inset) !important;
   }
 
-  .masthead .masthead__menu-item.selected a {
-    background: var(--glass-control) !important;
-    border: 1px solid var(--glass-control-edge) !important;
-    box-shadow: 0 2px 5px var(--glass-control-shadow), inset 0 1px 0 var(--glass-highlight) !important;
+  .masthead .greedy-nav .masthead__menu-item.selected > a,
+  .masthead .greedy-nav a[aria-current] {
+    @include mountain-glass-control;
+    border-radius: 10px;
+    color: var(--global-text-color) !important;
+    font-weight: 700;
+
+    &:hover {
+      @include mountain-glass-control;
+      color: var(--global-text-color) !important;
+    }
   }
 
   .masthead .greedy-nav .hidden-links {
@@ -145,11 +262,9 @@ body.mountain-glass {
   }
 
   .masthead .greedy-nav > button {
-    border: 1px solid var(--glass-control-edge) !important;
+    @include mountain-glass-control;
     border-radius: 10px;
-    background: var(--glass-control) !important;
-    box-shadow: inset 0 1px 0 var(--glass-highlight);
-    &:hover { background: var(--glass-solid) !important; }
+    &:hover { background-color: var(--glass-control-hover) !important; }
   }
 
   #main .home-2d-profile,
@@ -157,12 +272,13 @@ body.mountain-glass {
   #main .home-2d-intro,
   #main .home-2d-education,
   #main .home-2d-news,
-  #main.flat-2d-main > .archive,
-  #main.glass-detail-main > .page,
-  #main.glass-detail-main > .page__related,
+  #main.flat-2d-main > .glass-content > .glass-content-body > .archive,
+  #main.glass-detail-main > .glass-content > .glass-content-body > .page,
+  #main.glass-detail-main > .glass-content > .glass-content-body > .page__related,
   #main:not(.home-glass-main):not(.flat-2d-main) > .page,
   #main:not(.flat-2d-main) > .archive {
     @include mountain-glass-surface;
+    position: relative;
     padding: 1.2rem !important;
   }
 
@@ -171,8 +287,8 @@ body.mountain-glass {
     box-sizing: border-box;
   }
 
-  #main.glass-detail-main > .page,
-  #main.glass-detail-main > .page__related {
+  #main.glass-detail-main > .glass-content > .glass-content-body > .page,
+  #main.glass-detail-main > .glass-content > .glass-content-body > .page__related {
     display: flow-root;
     grid-column: 2;
     float: none;
@@ -184,7 +300,7 @@ body.mountain-glass {
     box-sizing: border-box;
   }
 
-  #main.glass-detail-main > .page__related {
+  #main.glass-detail-main > .glass-content > .glass-content-body > .page__related {
     margin-top: 1rem;
 
     .page__related-title {
@@ -215,16 +331,23 @@ body.mountain-glass {
 
   #main > .home-2d-profile {
     position: sticky;
-    top: calc(#{$masthead-height} + 0.75rem);
+    top: 0.75rem;
     align-self: start;
     z-index: 5;
-    max-height: calc(100vh - #{$masthead-height} - 1.5rem);
+    max-height: calc(var(--site-content-height, 75dvh) - 1.5rem);
     overflow: auto !important;
     scrollbar-width: thin;
   }
 
   #main .home-2d-name {
     white-space: normal;
+  }
+
+  #main .home-2d-portrait img {
+    display: block;
+    width: 100%;
+    aspect-ratio: 1;
+    object-fit: cover;
   }
 
   .home-2d-identity {
@@ -262,35 +385,40 @@ body.mountain-glass {
   }
 
   .home-2d-mini-links a {
+    @include mountain-glass-control;
     width: 40px;
     height: 40px;
     min-width: 40px;
     min-height: 40px;
     border-radius: 10px;
-    background: var(--glass-control) !important;
-    border: 1px solid var(--glass-control-edge) !important;
-    box-shadow: 0 2px 5px var(--glass-control-shadow), inset 0 1px 0 var(--glass-highlight);
     transform: none;
 
     &:hover {
-      background: var(--glass-solid) !important;
-      border-color: var(--global-link-color) !important;
+      background-color: var(--glass-control-hover) !important;
+    }
+  }
+
+  @media (min-width: 64.001em) {
+    .home-2d-profile-tags {
+      flex-direction: column;
+      flex-wrap: nowrap;
+      align-items: flex-start;
     }
   }
 
   .home-2d-profile-tags li {
+    @include mountain-glass-control;
     display: inline-flex;
     align-items: center;
     gap: 0.15em;
     width: auto;
     min-height: 0;
     padding: 0.3rem 0.45rem;
-    border: 1px solid var(--glass-control-edge);
-    border-radius: 7px;
-    background: var(--glass-control) !important;
+    border-radius: 10px;
     color: var(--global-text-color);
-    box-shadow: 0 1px 3px var(--glass-control-shadow);
     transform: none;
+    will-change: auto;
+    &::after { content: none !important; display: none !important; }
   }
 
   /* Plain list rows sit directly on the shared glass panel. */
@@ -356,6 +484,7 @@ body.mountain-glass {
   #main .publication-list__resource,
   #main .page__taxonomy-item,
   #main.glass-detail-main .pagination--pager {
+    @include mountain-glass-control;
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -363,11 +492,8 @@ body.mountain-glass {
     min-height: 40px;
     margin: 0;
     padding: 0.45rem 0.7rem;
-    border: 1px solid var(--glass-control-edge);
     border-radius: 10px;
-    background: var(--glass-control);
     color: var(--global-link-color);
-    box-shadow: 0 2px 5px var(--glass-control-shadow), inset 0 1px 0 var(--glass-highlight);
     font-family: $sans-serif;
     font-size: var(--text-meta);
     font-weight: 600;
@@ -378,8 +504,7 @@ body.mountain-glass {
 
     i { font-size: 1rem; }
     &:not(.disabled):hover {
-      background: var(--glass-solid);
-      border-color: var(--global-link-color);
+      background-color: var(--glass-control-hover) !important;
     }
     &:disabled { opacity: 0.65; cursor: wait; }
   }
@@ -470,7 +595,8 @@ body.mountain-glass {
   #main .home-2d-intro p,
   #main .home-2d-education li,
   #main .home-2d-news li,
-  #main > .archive,
+  :is(#main, #main .glass-content-body) > .archive,
+  #main:not(.home-glass-main) .glass-content-body > .page,
   #main:not(.home-glass-main) > .page {
     font-size: var(--text-body);
     line-height: 1.5;
@@ -480,7 +606,7 @@ body.mountain-glass {
   #main .home-2d-education h2,
   #main .home-2d-news h2,
   #main .page__title,
-  #main > .archive > h2,
+  :is(#main, #main .glass-content-body) > .archive > h2,
   #main:not(.home-glass-main) .page__content h2 {
     font-family: $sans-serif;
     font-size: var(--text-heading) !important;
@@ -502,7 +628,7 @@ body.mountain-glass {
     border-bottom: 1px solid var(--global-border-color);
   }
 
-  #main > .archive > h2,
+  :is(#main, #main .glass-content-body) > .archive > h2,
   #main:not(.home-glass-main) .page__content h2 {
     margin: 1.4rem 0 0.75rem !important;
     padding: 0;
@@ -517,9 +643,9 @@ body.mountain-glass {
     line-height: 1.5;
   }
 
-  #main > .archive > h2 + hr { display: none; }
+  :is(#main, #main .glass-content-body) > .archive > h2 + hr { display: none; }
 
-  #main > .archive > ul,
+  :is(#main, #main .glass-content-body) > .archive > ul,
   #main:not(.home-glass-main) .page__content ul,
   #main:not(.home-glass-main) .page__content ol {
     margin: 0 0 1rem;
@@ -558,7 +684,7 @@ body.mountain-glass {
   }
 
   #main .home-2d-about strong,
-  #main > .archive strong,
+  :is(#main, #main .glass-content-body) > .archive strong,
   #main:not(.home-glass-main) .page__content strong { font-weight: 700; }
 
   #main .archive__item-title a {
@@ -592,7 +718,7 @@ body.mountain-glass {
   #main.flat-2d-main .publication-list__body > :last-child,
   #main.flat-2d-main .archive-message-card > .archive__item > :last-child,
   #main.flat-2d-main .archive-message-card .archive__item-excerpt > :last-child,
-  #main > .archive > :last-child,
+  :is(#main, #main .glass-content-body) > .archive > :last-child,
   #main .cv-archive li:last-child { margin-bottom: 0; }
 
   #main.flat-2d-main .publication-list__item:last-child .publication-list__body,
@@ -793,6 +919,12 @@ body.mountain-glass {
 
   summary:focus-visible { outline: 2px solid var(--global-link-color); outline-offset: 4px; }
 
+  #main [data-route-focus="pointer"]:focus { outline: none; }
+  #main [data-route-focus="keyboard"]:focus {
+    outline: 2px solid var(--global-link-color);
+    outline-offset: 4px;
+  }
+
   @media (prefers-reduced-motion: reduce) {
     *, *::before, *::after {
       animation: none !important;
@@ -811,7 +943,8 @@ body.mountain-glass {
       grid-template-rows: auto auto;
       width: 100%;
       max-width: none !important;
-      position: static;
+      position: relative;
+      top: auto;
       max-height: none;
       overflow: visible !important;
     }
@@ -911,9 +1044,9 @@ body.mountain-glass {
     #main .home-2d-intro,
     #main .home-2d-education,
     #main .home-2d-news,
-    #main.glass-detail-main > .page,
-    #main.glass-detail-main > .page__related,
-    #main.flat-2d-main > .archive {
+    #main.glass-detail-main > .glass-content > .glass-content-body > .page,
+    #main.glass-detail-main > .glass-content > .glass-content-body > .page__related,
+    #main.flat-2d-main > .glass-content > .glass-content-body > .archive {
       padding: 1rem !important;
       border-radius: 16px !important;
     }
@@ -935,66 +1068,24 @@ body.mountain-glass {
   }
 }
 
-@keyframes mountain-tag-float {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-3px); }
-}
-
 @keyframes mountain-avatar-float {
   0%, 100% { transform: translateY(0) rotate(-0.4deg); }
   50% { transform: translateY(-4px) rotate(0.6deg); }
 }
 
-@keyframes mountain-avatar-enter {
-  0% { opacity: 0; transform: translateX(-24px) rotate(-5deg) scale(0.9); }
-  70% { opacity: 1; transform: translateX(2px) rotate(0.8deg) scale(1.015); }
-  100% { opacity: 1; transform: none; }
-}
-
-/* Keep the reading surface still; only the portrait and profile tags move. */
-@view-transition { navigation: none; }
-
-@media (prefers-reduced-motion: no-preference) {
-  body.mountain-glass {
-    #main .home-2d-profile-tags li {
-      animation: mountain-tag-float 6s ease-in-out infinite;
-    }
-
-    @for $i from 1 through 5 {
-      #main .home-2d-profile-tags li:nth-child(#{$i}) {
-        animation-duration: 5s + $i * 0.45s;
-        animation-delay: -$i * 0.8s;
-      }
-    }
-
-    #main .home-2d-avatar-motion {
-      animation: mountain-avatar-enter 760ms cubic-bezier(0.22, 1, 0.36, 1) 100ms backwards;
-      transform-origin: center;
-      transition: transform 320ms cubic-bezier(0.22, 1, 0.36, 1);
-    }
-
-    @media (hover: hover) and (pointer: fine) and (min-width: 48em) {
-      #main .home-2d-portrait img {
-        animation: mountain-avatar-float 5.6s ease-in-out 900ms infinite;
-        transition: box-shadow 320ms ease;
-      }
-      #main .home-2d-portrait:hover .home-2d-avatar-motion {
-        transform: perspective(700px) rotateX(var(--avatar-x, 0deg)) rotateY(var(--avatar-y, 0deg)) scale(1.025);
-      }
-      #main .home-2d-portrait:hover img {
-        animation-play-state: paused;
-        box-shadow: 0 8px 22px var(--glass-shadow);
-      }
-      #main .home-2d-profile-tags li:hover { animation-play-state: paused; }
-    }
+/* Only the avatar loops. Content fades independently of the glass backing. */
+@media (prefers-reduced-motion: no-preference) and (hover: hover) and (pointer: fine) and (min-width: 48em) {
+  body.mountain-glass #main .home-2d-portrait img {
+    animation: mountain-avatar-float 5.6s ease-in-out infinite;
   }
+  body.mountain-glass #main .home-2d-portrait:hover img { animation-play-state: paused; }
 }
 
-@media (prefers-reduced-motion: reduce) {
-  @view-transition { navigation: none; }
-  ::view-transition-group(*),
-  ::view-transition-old(*),
-  ::view-transition-new(*) { animation: none !important; }
+html { scrollbar-gutter: stable; }
+
+.glass-route-status {
+  position: fixed; width: 1px; height: 1px; overflow: hidden;
+  clip-path: inset(50%); white-space: nowrap;
 }
 
 /* Solid surfaces are also the fallback on browsers without backdrop-filter. */
@@ -1039,9 +1130,54 @@ body.mountain-glass {
     *, *::before, *::after { animation: none !important; transition: none !important; }
 
     #main > .home-2d-profile {
-      position: static;
+      position: relative;
+      top: auto;
       max-height: none;
       overflow: visible !important;
     }
+  }
+}
+
+
+body.mountain-glass #main > .glass-content {
+  grid-column: 2;
+  min-width: 0;
+  width: 100%;
+  max-width: 760px;
+  position: relative;
+  overflow: visible;
+}
+
+body.mountain-glass .glass-content-body {
+  display: flow-root;
+  width: 100%;
+}
+
+html.glass-entering body.mountain-glass:has(.glass-content-body) .page__footer {
+  opacity: 0;
+}
+
+html.glass-entering body.mountain-glass:has(.glass-content-body) .masthead,
+html.glass-entering body.mountain-glass #main > .home-2d-profile,
+html.glass-entering body.mountain-glass .glass-content-body {
+  transform: translateY(calc(-100% - 40px));
+}
+
+@media (max-width: 64em) {
+  body.mountain-glass #main > .glass-content { max-width: 100%; }
+  html.glass-entering body.mountain-glass:has(.glass-content-body) .masthead,
+  html.glass-entering body.mountain-glass #main > .home-2d-profile,
+  html.glass-entering body.mountain-glass .glass-content-body {
+    transform: translateX(calc(100% + 40px));
+  }
+}
+
+@media print {
+  body.mountain-glass {
+    display: block;
+    height: auto;
+    overflow: visible;
+    .site-scrollport { overflow: visible; }
+    .site-scrollport > #main { min-height: 0; }
   }
 }

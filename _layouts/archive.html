@@ -19,10 +19,17 @@ layout: default
     {% include sidebar.html %}
   {% endif %}
 
+  {% if page.cartoon_page %}
+  <div class="glass-content"><div class="glass-content-body">
+  {% endif %}
+
   <div class="archive{% if page.archive_class %} {{ page.archive_class }}{% endif %}">
     {% unless page.header.overlay_color or page.header.overlay_image %}
       <h1 class="page__title">{{ page.title }}</h1>
     {% endunless %}
     {{ content }}
   </div>
+  {% if page.cartoon_page %}
+  </div></div>
+  {% endif %}
 </div>
