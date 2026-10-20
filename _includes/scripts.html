@@ -1,7 +1,8 @@
-<script type="module" src="{{ base_path }}/assets/js/main.min.js"></script>
-<script src="{{ '/assets/js/glass-motion.js' | relative_url }}" defer></script>
-<script src="{{ '/assets/js/glass-share.js' | relative_url }}" defer></script>
-<script src="{{ '/assets/js/article-reading.js' | relative_url }}" defer></script>
-<script src="{{ '/assets/js/glass-navigation.js' | relative_url }}" defer></script>
+{% assign asset_version = site.time | date: '%Y%m%d%H%M%S' %}
+<script type="module" src="{{ base_path }}/assets/js/main.min.js?v={{ asset_version }}"></script>
+<script src="{{ '/assets/js/glass-motion.js' | relative_url }}?v={{ asset_version }}" defer></script>
+<script src="{{ '/assets/js/glass-share.js' | relative_url }}?v={{ asset_version }}" defer></script>
+<script src="{{ '/assets/js/article-reading.js' | relative_url }}?v={{ asset_version }}" defer></script>
+<script src="{{ '/assets/js/glass-navigation.js' | relative_url }}?v={{ asset_version }}" defer></script>
 
 {% include analytics.html %}

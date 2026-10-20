@@ -12,12 +12,12 @@
 
 <script>
   document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
-  // Place the complete panel offscreen before its entrance can be painted.
+  /* Place the complete panel offscreen before its entrance can be painted. */
   if (!location.hash && Element.prototype.animate && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
     document.documentElement.classList.add('glass-entering');
     setTimeout(function () { document.documentElement.classList.remove('glass-entering'); }, 3000);
   }
-  // Resolve the material palette before the first paint and navigation snapshot.
+  /* Resolve the material palette before the first paint and navigation snapshot. */
   (function () {
     try {
       var theme = localStorage.getItem('theme') || document.documentElement.getAttribute('data-theme');

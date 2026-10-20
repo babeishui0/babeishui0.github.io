@@ -48,7 +48,7 @@
     if (cached && Date.now() - cached.time < 60000) return cached.promise;
     const controller = new AbortController();
     const timeout = setTimeout(() => controller.abort(), 8000);
-    const promise = fetch(key, { signal: controller.signal, credentials: 'same-origin' })
+    const promise = fetch(key, { signal: controller.signal, credentials: 'same-origin', cache: 'no-cache' })
       .then(async response => {
         if (!response.ok || response.redirected || !(response.headers.get('content-type') || '').includes('text/html')) throw new Error('Use document navigation');
         const doc = new DOMParser().parseFromString(await response.text(), 'text/html');
