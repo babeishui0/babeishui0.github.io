@@ -14,9 +14,16 @@ layout: default
   {% endunless %}
 {% endif %}
 
-<div id="main" role="main"{% if page.home_gsap %} class="home-glass-main"{% endif %}>
+{% assign glass_detail = false %}
+{% if page.collection == 'posts' or page.collection == 'publications' %}
+  {% assign glass_detail = true %}
+{% endif %}
+
+<div id="main" role="main"{% if page.home_gsap %} class="home-glass-main"{% elsif glass_detail %} class="flat-2d-main glass-detail-main"{% endif %}>
   {% if page.home_gsap %}
     {% include profile-left.html title_id="home-2d-title" %}
+  {% elsif glass_detail %}
+    {% include profile-left.html %}
   {% else %}
     {% include sidebar.html %}
   {% endif %}
@@ -84,12 +91,14 @@ layout: default
         {% if page.link %}<div><a href="{{ page.link }}" class="btn">{{ site.data.ui-text[site.locale].ext_link_label | default: "Direct Link" }}</a></div>{% endif %}
       </section>
 
+      {% if page.tags.size > 0 or page.categories.size > 0 or site.data.ui-text[site.locale].meta_label %}
       <footer class="page__meta">
         {% if site.data.ui-text[site.locale].meta_label %}
           <h4 class="page__meta-title">{{ site.data.ui-text[site.locale].meta_label }}</h4>
         {% endif %}
         {% include page__taxonomy.html %}
       </footer>
+      {% endif %}
 
       {% if page.share %}{% include social-share.html %}{% endif %}
 

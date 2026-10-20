@@ -4,6 +4,7 @@ title: "CV"
 permalink: /cv/
 author_profile: true
 cartoon_page: true
+archive_class: cv-archive
 redirect_from:
   - /resume
 ---
@@ -11,19 +12,19 @@ redirect_from:
 {% include base_path %}
 
 Education
-======
+------
 * **Ph.D.** student, **University of Macau**, 2026-present
 * **M.Phil.** in Microelectronics, **The Hong Kong University of Science and Technology (Guangzhou)**, 2026
 * **B.E.** in Electronic Science and Technology, **Beijing Institute of Technology**, 2024
 
 Research Interests
-======
+------
 * Digital Integrated Circuits and Compute-in-Memory Architecture
 * Computer Architecture and Hardware-Software Co-design
 * Large Language Models
 
 Work experience
-======
+------
 * **Research Assistant @ University of Macau**, 04/2026-07/2026
   * Duties included: Wafer-Scale Chip for LLMs
   * Supervisor: Prof. Jiawei XU

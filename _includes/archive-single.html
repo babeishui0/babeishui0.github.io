@@ -37,7 +37,7 @@
 {% if include.archive_card == 'publication' and archive_type == 'list' %}
 <div class="publication-list__item">
   <article class="publication-list__body" itemscope itemtype="http://schema.org/CreativeWork">
-    <div class="publication-list__meta">{{ post.venue }} '{{ post.date | default: "1900-01-01" | date: "%y" }}</div>
+    <div class="publication-list__meta">{{ post.venue }} <time datetime="{{ post.date | date: '%Y-%m-%d' }}">{{ post.date | date: "%Y" }}</time></div>
 
     <h2 class="archive__item-title publication-list__title" itemprop="headline">
       {% if post.link %}
@@ -51,12 +51,15 @@
       <p class="publication-list__authors">{{ post.Authors | markdownify | remove: '<p>' | remove: '</p>' }}</p>
     {% endif %}
 
-    <p class="publication-list__links">
-      {% if post.paperurl %}<a href="{{ post.paperurl }}">[pdf]</a>{% endif %}
-      {% if post.slidesurl %}<a href="{{ post.slidesurl }}">[slides]</a>{% endif %}
-      {% if post.bibtexurl %}<a href="{{ post.bibtexurl }}">[bibtex]</a>{% endif %}
-      {% if post.doiurl %}<a href="{{ post.doiurl }}">[doi]</a>{% endif %}
+    {% if post.paperurl or post.slidesurl or post.bibtexurl or post.doiurl or post.codeurl %}
+    <p class="publication-list__links" aria-label="Publication resources">
+      {% if post.paperurl %}<a class="publication-list__resource" href="{{ post.paperurl }}"><i class="far fa-file-pdf" aria-hidden="true"></i> PDF</a>{% endif %}
+      {% if post.codeurl %}<a class="publication-list__resource" href="{{ post.codeurl }}"><i class="fas fa-code" aria-hidden="true"></i> Code</a>{% endif %}
+      {% if post.slidesurl %}<a class="publication-list__resource" href="{{ post.slidesurl }}"><i class="far fa-file-powerpoint" aria-hidden="true"></i> Slides</a>{% endif %}
+      {% if post.bibtexurl %}<a class="publication-list__resource" href="{{ post.bibtexurl }}"><i class="fas fa-quote-right" aria-hidden="true"></i> BibTeX</a>{% endif %}
+      {% if post.doiurl %}<a class="publication-list__resource" href="{{ post.doiurl }}"><i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i> DOI</a>{% endif %}
     </p>
+    {% endif %}
   </article>
 </div>
 {% else %}
@@ -75,7 +78,10 @@
     {% endif %}
 
     {% if is_post_archive_card and post.date %}
-      <div class="archive-message-card__date"><time datetime="{{ post.date | default: "1900-01-01" | date_to_xmlschema }}">{{ post.date | default: "1900-01-01" | date: "%B %d, %Y" }}</time></div>
+      <div class="archive-message-card__meta">
+        <time class="archive-message-card__date" datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%B %d, %Y" }}</time>
+        {% if post.read_time %}<span class="page__meta"><i class="fa fa-clock" aria-hidden="true"></i> {% include read-time.html %}</span>{% endif %}
+      </div>
     {% endif %}
 
     <h2 class="archive__item-title" itemprop="headline">
@@ -86,7 +92,7 @@
       {% endif %}
     </h2>
     
-    {% if post.read_time %}
+    {% if post.read_time and is_post_archive_card == false %}
       <p class="page__meta"><i class="fa fa-clock" aria-hidden="true"></i> {% include read-time.html %}</p>
     {% endif %}
 
@@ -101,9 +107,9 @@
         {% endif %}
 
     {% if post.excerpt and site.read_more != 'enabled' %}
-    <p class="archive__item-excerpt" itemprop="description">{{ post.excerpt | markdownify }}</p>
+    <div class="archive__item-excerpt" itemprop="description">{{ post.excerpt | markdownify }}</div>
     {% elsif post.excerpt and site.read_more == 'enabled' %}
-    <p class="archive__item-excerpt" itemprop="description"><p>{{ post.excerpt | markdownify | remove: '<p>' | remove: '</p>' }}<strong><a href="{{ base_path }}{{ post.url }}" rel="permalink"> Read more</a></strong></p></p>
+    <div class="archive__item-excerpt" itemprop="description">{{ post.excerpt | markdownify }}<strong><a href="{{ base_path }}{{ post.url }}" rel="permalink">Read more</a></strong></div>
     {% endif %}
     
     {% if post.Authors %}

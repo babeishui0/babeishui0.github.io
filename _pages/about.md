@@ -14,10 +14,12 @@ redirect_from:
   <section class="home-2d-stage" aria-labelledby="home-about-title">
     <div class="home-2d-window" data-home-animate>
       <article class="home-2d-about" data-home-panel>
-        <h2 id="home-about-title" class="home-2d-section-title">About Me</h2>
-        <p>
-          I am a Ph.D. student at <a href="https://www.um.edu.mo/">University of Macau</a>. My research focuses on efficient digital circuits, compute-in-memory architecture, and hardware-software co-design for emerging AI workloads. Before that, I received my M.Phil. degree from <a href="https://www.hkust-gz.edu.cn/">HKUST(GZ)</a>.
-        </p>
+        <section class="home-2d-intro" aria-labelledby="home-about-title">
+          <h2 id="home-about-title" class="home-2d-section-title">About Me</h2>
+          <p>
+            I am a Ph.D. student at <a href="https://www.um.edu.mo/">University of Macau</a>. My research focuses on efficient digital circuits, compute-in-memory architecture, and hardware-software co-design for emerging AI workloads. Before that, I received my M.Phil. degree from <a href="https://www.hkust-gz.edu.cn/">HKUST(GZ)</a>.
+          </p>
+        </section>
 
         <section class="home-2d-education" aria-labelledby="home-education-title">
           <h2 id="home-education-title">Education</h2>

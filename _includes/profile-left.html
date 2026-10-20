@@ -3,20 +3,24 @@
 {% assign profile_title_id = include.title_id | default: "profile-left-title" %}
 
 <div class="home-2d-profile site-profile-left">
-  <h1 id="{{ profile_title_id }}" class="home-2d-name">{{ author.name }}</h1>
+  <div class="home-2d-identity">
+    <h1 id="{{ profile_title_id }}" class="home-2d-name">{{ author.name }}</h1>
 
-  <figure class="home-2d-portrait" data-home-character>
-    {% if author.avatar contains "://" %}
-      <img src="{{ author.avatar }}" alt="{{ author.name }} avatar" fetchpriority="high">
-    {% else %}
-      <img src="{{ author.avatar | prepend: "/images/" | prepend: base_path }}" alt="{{ author.name }} avatar" fetchpriority="high">
-    {% endif %}
-  </figure>
+    <figure class="home-2d-portrait" data-home-character>
+      <div class="home-2d-avatar-motion">
+      {% if author.avatar contains "://" %}
+        <img src="{{ author.avatar }}" alt="{{ author.name }} avatar" fetchpriority="high">
+      {% else %}
+        <img src="{{ author.avatar | prepend: "/images/" | prepend: base_path }}" alt="{{ author.name }} avatar" fetchpriority="high">
+      {% endif %}
+      </div>
+    </figure>
 
-  <p class="home-2d-profile-note">
-    Ph.D. student<br>
-    <a href="https://www.um.edu.mo/">University of Macau</a>
-  </p>
+    <p class="home-2d-profile-note">
+      Ph.D. student<br>
+      <a href="https://www.um.edu.mo/">University of Macau</a>
+    </p>
+  </div>
 
   <div class="home-2d-mini-links" data-home-animate aria-label="Profile links">
     {% if author.email %}

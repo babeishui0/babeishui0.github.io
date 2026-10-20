@@ -1,17 +1,20 @@
-{% include base_path %}
+{% assign share_url = page.url | absolute_url %}
+{% assign share_url_encoded = share_url | url_encode %}
+{% assign share_title = page.title | strip_html | strip_newlines %}
 
-<section class="page__share">
-  {% if site.data.ui-text[site.locale].share_on_label %}
-    <h4 class="page__share-title">{{ site.data.ui-text[site.locale].share_on_label | default: "Share on" }}</h4>
-  {% endif %}
-
-  <a href="https://bsky.app/intent/compose?text={{ base_path }}{{ page.url }}" class="btn btn--bluesky" title="{{ site.data.ui-text[site.locale].share_on_label | default: 'Share on' }} Bluesky"><i class="fab fa-bluesky" aria-hidden="true"></i><span> Bluesky</span></a>
-
-  <a href="https://www.facebook.com/sharer/sharer.php?u={{ base_path }}{{ page.url }}" class="btn btn--facebook" title="{{ site.data.ui-text[site.locale].share_on_label | default: 'Share on' }} Facebook"><i class="fab fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
-
-  <a href="https://www.linkedin.com/shareArticle?mini=true&url={{ base_path }}{{ page.url }}" class="btn btn--linkedin" title="{{ site.data.ui-text[site.locale].share_on_label | default: 'Share on' }} LinkedIn"><i class="fab fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
-
-  <a href="https://www.addtoany.com/add_to/mastodon?linkurl={{  base_path | append: page.url | url_encode }}" class="btn btn--mastodon" title="{{ site.data.ui-text[site.locale].share_on_label | default: 'Share on' }} Mastodon"><i class="fab fa-mastodon" aria-hidden="true"></i><span> Mastodon</span></a>
-
-  <a href="https://x.com/intent/post?text={{ base_path }}{{ page.url }}" class="btn btn--x" title="{{ site.data.ui-text[site.locale].share_on_label | default: 'Share on' }} X"><i class="fab fa-x-twitter" aria-hidden="true"></i><span> X (formerly Twitter)</span></a>
+<section class="page__share glass-share" aria-labelledby="share-heading" data-share-url="{{ share_url | escape }}" data-share-title="{{ share_title | escape }}">
+  <h4 id="share-heading" class="page__share-title">{{ site.data.ui-text[site.locale].share_on_label | default: "Share on" }}</h4>
+  <div class="glass-share__actions">
+    <a href="https://www.facebook.com/sharer/sharer.php?u={{ share_url_encoded }}" class="glass-share__button" target="_blank" rel="noopener noreferrer" aria-label="Share on Facebook"><i class="fab fa-facebook" aria-hidden="true"></i><span>Facebook</span></a>
+    <a href="https://www.linkedin.com/sharing/share-offsite/?url={{ share_url_encoded }}" class="glass-share__button" target="_blank" rel="noopener noreferrer" aria-label="Share on LinkedIn"><i class="fab fa-linkedin" aria-hidden="true"></i><span>LinkedIn</span></a>
+    <a href="https://x.com/intent/post?url={{ share_url_encoded }}&amp;text={{ share_title | url_encode }}" class="glass-share__button" target="_blank" rel="noopener noreferrer" aria-label="Share on X"><i class="fab fa-x-twitter" aria-hidden="true"></i><span>X</span></a>
+    <button type="button" class="glass-share__button" data-copy-share="RedNote" data-platform-url="https://www.xiaohongshu.com/" title="Copy title and link for RedNote" aria-label="Copy title and link for RedNote"><i class="fas fa-book-open" aria-hidden="true"></i><span>RedNote</span></button>
+    <button type="button" class="glass-share__button" data-copy-share="Douyin" data-platform-url="https://www.douyin.com/" title="Copy title and link for Douyin" aria-label="Copy title and link for Douyin"><i class="fab fa-tiktok" aria-hidden="true"></i><span>Douyin</span></button>
+  </div>
+  <div class="glass-share__feedback" hidden>
+    <p class="glass-share__status" role="status" aria-live="polite"></p>
+    <textarea class="glass-share__copy-text" aria-label="Title and link to copy" readonly hidden></textarea>
+    <a class="glass-share__open" target="_blank" rel="noopener noreferrer" hidden></a>
+  </div>
+  <noscript><p class="glass-share__hint">Copy this page's address to share on RedNote or Douyin.</p></noscript>
 </section>
